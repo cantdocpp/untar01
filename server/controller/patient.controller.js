@@ -40,10 +40,10 @@ module.exports = {
           data: userData
         });
       })
-      .then(user => {
+      .then(function(user) {
         console.log("kepangil");
       })
-      .catch(err => {
+      .catch(function(err) {
         console.log(err);
         res.status(500).json({
           message: "something bad happened"

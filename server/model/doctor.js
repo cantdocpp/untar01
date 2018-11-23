@@ -31,8 +31,7 @@ let doctorSchema = mongoose.Schema({
         hari: String,
         jam: String
       }
-    ],
-    required: true
+    ]
   },
   specialist: {
     type: String,
@@ -49,8 +48,7 @@ let doctorSchema = mongoose.Schema({
         to: Date,
         work_place: String
       }
-    ],
-    required: true
+    ]
   },
   pendidikan: {
     type: [
@@ -59,12 +57,12 @@ let doctorSchema = mongoose.Schema({
         to: Date,
         school: String
       }
-    ],
-    required: true
+    ]
+    
   },
   service: {
-    type: String,
-    required: true
+    type: String
+    
   },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }

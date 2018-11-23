@@ -33,8 +33,7 @@ module.exports = {
 
         function makeid() {
           var text = "";
-          var possible =
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
           for (var i = 0; i < 5; i++)
             text += possible.charAt(
@@ -70,5 +69,19 @@ module.exports = {
           message: "something went wrong"
         });
       });
+  },
+
+  getAllDoctor: (req, res) => {
+    Doctor.find({})
+    .then(function(res) {
+      res.status(200).json({
+        data: res
+      })
+    })
+    .catch(function(err) {
+      res.status(400).json({
+        message: 'something bad happening'
+      })
+    })
   }
 };
