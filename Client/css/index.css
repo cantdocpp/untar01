@@ -1,0 +1,85 @@
+body {
+  font-family: "Lato", "Helvetica", sans-serif; }
+  body .bg-green {
+    background-color: #00B894 !important; }
+  body .bg-blue {
+    background-color: #00CEC9 !important; }
+  body nav .navbar-brand {
+    color: #FFFFFF; }
+
+.welcome {
+  background: url("../asset/landingpage.jpg") no-repeat;
+  height: 70vh;
+  background-size: 100% 100%;
+  width: 100%;
+  margin: 7vh 0vw;
+  color: #FFFFFF;
+  padding: 8vh 10vw; }
+  .welcome .login {
+    width: 20vw;
+    margin: 5vh 5vw 2vh 5vw;
+    color: #FFFFFF;
+    border-radius: 15px; }
+  .welcome .daftar {
+    width: 20vw;
+    margin: 2vh 5vw 2vh 5vw;
+    color: #FFFFFF;
+    border-radius: 15px; }
+  .welcome .daftar {
+    display: block; }
+
+.benefit {
+  text-transform: capitalize;
+  text-align: center; }
+  .benefit .row {
+    margin: 10vh 0vw; }
+
+.best {
+  text-transform: capitalize; }
+  .best .dokter .row {
+    margin: 5vh 0vw; }
+  .best .dokter .dokter-content {
+    border: solid 2px #EBEBE0;
+    min-height: 25vh !important; }
+    .best .dokter .dokter-content .image img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%; }
+    .best .dokter .dokter-content .info .spesialis, .best .dokter .dokter-content .info .lokasi {
+      font-size: 13px; }
+    .best .dokter .dokter-content .score {
+      text-align: center;
+      padding: 5vh 0vw; }
+  .best .apotek .row {
+    margin: 5vh 0vw; }
+  .best .apotek .apotek-content {
+    border: solid 2px #EBEBE0;
+    min-height: 25vh !important; }
+    .best .apotek .apotek-content .image img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%; }
+    .best .apotek .apotek-content .info .lokasi {
+      font-size: 13px; }
+    .best .apotek .apotek-content .score {
+      text-align: center;
+      padding: 5vh 0vw; }
+
+footer {
+  background-color: #353B48;
+  padding: 5vh 0vw;
+  color: #FFFFFF; }
+  footer .row a {
+    color: #FFFFFF;
+    display: block; }
+  footer .row a:hover {
+    color: #FFFFFF; }
+  footer hr {
+    border: solid 1px #FFFFFF;
+    width: 50vw; }
+
+@media only screen and (max-width: 576px) {
+  .welcome .login, .welcome .daftar {
+    width: 30vh; } }
+
+/*# sourceMappingURL=index.css.map */

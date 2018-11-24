@@ -1,0 +1,79 @@
+body {
+  font-family: "Lato", "Helvetica", sans-serif;
+  margin: 0;
+  width: 100%;
+  background-color: #EBEBE0 !important;
+  text-transform: capitalize; }
+  body .bg-green {
+    background-color: #00B894 !important;
+    color: #FFFFFF; }
+  body .bg-blue {
+    background-color: #00CEC9 !important; }
+  body .navbar {
+    display: block; }
+    body .navbar .nav {
+      float: right; }
+    body .navbar .navbar-brand {
+      color: #FFFFFF;
+      margin: 2vh 3vw; }
+    body .navbar #navbardrop {
+      color: #FFFFFF; }
+    body .navbar img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%; }
+  body .container {
+    margin-top: 20vh;
+    padding: 3vh 2vw;
+    background-color: #FFFFFF; }
+    body .container .profile .row .image .img-content {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      margin: 0vh auto; }
+      body .container .profile .row .image .img-content img {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%; }
+    body .container .profile .row .info .spesialisasi, body .container .profile .row .info .lokasi {
+      font-size: 13px; }
+    body .container .profile .row .info .lokasi {
+      line-height: 1px; }
+    body .container .profile .row .score .score-content {
+      width: 75px;
+      height: 75px;
+      background-color: #00B894;
+      border-radius: 50%;
+      text-align: center;
+      padding: 3vh 0vw;
+      color: #FFFFFF; }
+    body .container .profile .pesan .btn {
+      background-color: #00CEC9;
+      text-align: center;
+      margin: 3vh auto;
+      display: block;
+      color: #FFFFFF; }
+    body .container .detail .nav-pills {
+      margin: 3vh 0vw 0vw 0vw; }
+      body .container .detail .nav-pills .nav-item {
+        width: 50%;
+        text-align: center; }
+        body .container .detail .nav-pills .nav-item .active {
+          background-color: #00B894;
+          color: #FFFFFF !important; }
+        body .container .detail .nav-pills .nav-item .nav-link {
+          color: #000000; }
+    body .container .detail #review {
+      margin: 0vh 0vw; }
+      body .container .detail #review .review-content {
+        border: solid 2px #EBEBE0;
+        padding: 2vh 2vw;
+        margin: 1vh 0vw; }
+    body .container .detail #info {
+      margin: 0vh 0vw; }
+
+@media only screen and (max-width: 515px) {
+  .profile .row .info .name {
+    text-align: center; } }
+
+/*# sourceMappingURL=profildokter.css.map */

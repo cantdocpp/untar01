@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="css/caridokter.css">
+
+        <nav class="navbar navbar-expand-sm fixed-top bg-green">
+            <a class="navbar-brand" href="#!">LOGO</a>
+            <ul class="nav">
+                <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><img src="asset/sule-kecewa_20160621_214123.jpg" alt="Profile Image"> Hi, Arief</a>
+                      <div class="dropdown-menu">
+                            <a class="dropdown-item" href="">Profile</a>
+                            <a class="dropdown-item" href="">Logout</a>
+                      </div>
+                </li>
+            </ul>
+        </nav>
+        <main class="container">
+            <div class="row">
+                
+                <!--HASIL DATA DAN PENCARIAN-->
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 list">
+                    <a class="kembali" href="home.html"><i class="fas fa-angle-left fa-lg"></i> Kembali</a>
+                    
+                    <!-- FORM PENCARIAN-->
+                    <form method="post">
+                        <div class="form-group">
+                            <label>Cari :</label>
+                            <input type="text" class="form-control" placeholder="Cari..." name="cari" ng-model="filter_input" ng-change="find_data()">
+                        </div>
+                        <div class="form-group">
+                            <label>Filter Menurut :</label>
+                            <select name="filter" class="form-control" ng-model="filter_select" ng-change="find_data()">
+                                <option value="harga">Harga</option>
+                                <option value="spesialist">spesialist</option>
+                            </select>
+                        </div>
+                    </form>
+                    
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 list-content">
+                            <div class="row">
+                                <div class="col-xs-3 col-sm-3 col-md-12 col-lg-3 col-xl-3">
+                                    <img src="asset/sule-kecewa_20160621_214123.jpg" alt="Profile Image" class="mx-auto d-block img-fluid">
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-12 col-lg-6 col-xl-6">
+                                    <p>Dr. Bernard Mahfouz</p>
+                                    <p class="spesialis"><i class="fas fa-briefcase-medical"></i> Spesialis Jantung</p>
+                                    <p class="harga">Rp. 50000 - Rp. 10000</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-12 col-lg-3 col-xl-3">
+                                    <a href="profildokter.html" class="btn bg-green">Pesan</a>
+                                </div>
+                            </div>
+                        </div>
+
+ 
+                    </div>
+                </div>
+                <!--INPUT MAPS DISINI-->
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 maps">
+                    <!-- <div id="map"></div> -->
+                </div>
+            </div>
+        </main>

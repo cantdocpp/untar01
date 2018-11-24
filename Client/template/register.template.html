@@ -1,0 +1,110 @@
+<link rel="stylesheet" href="./css/daftar.css">
+
+<div class="container-fluid">
+   <wrapper>
+<div class="row">
+      <div class="text col-xl-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
+          <h1>Daftar karena sehat gak mahal lagi. karena kamu berhak untuk sehat</h1>
+          <p>sudah punya akun ? ayo <a href="login.html">login</a></p>
+      </div>
+      <div class="form col-xl-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+          <ul class="nav nav-pills">
+              <li class="nav-list"><a class="nav-link" data-toggle="pill" ng-class="{ active: isSet(1) }" ng-click="setTab(1)" ng-disabled="isvalidating">Pasien</a></li>
+              <li class="nav-list"><a class="nav-link" data-toggle="pill" ng-class="{ active: isSet(2) }" ng-click="setTab(2)" ng-disabled="isvalidating">Dokter</a></li>
+          </ul>
+          <div class="tab-content">
+
+              <div id="user" class="tab-pane container" ng-class="{ active: isSet(1) }" ng-show="isSet(1)">
+                  <form method="post" ng-submit="Register()">
+                      <div class="form-group">
+                          <label>masukkan nama lengkap :</label>
+                          <input type="text" class="form-control" name="name" placeholder="Nama..." ng-model="name_patien" ng-disabled="isvalidating" required>
+                          <p class="error">panjang nama minimal 3 huruf</p>
+                      </div>
+                      <div class="form-group">
+                          <label>masukkan email :</label>
+                          <input type="email" class="form-control" name="email" placeholder="Email... " ng-model="email_patien" ng-disabled="isvalidating" required>
+                      </div>
+                      <div class="form-group">
+                          <p class="error">panjang password minimal 6 huruf</p>
+                          <label>masukkan password</label>
+                          <input type="password" class="form-control" placeholder="Password..." name="password" ng-model="password_patien" ng-disabled="isvalidating" required>
+                      </div>
+                      <div class="form-group">
+
+                          <label>konfirmasi password :</label>
+                          <input type="password" class="form-control" placeholder="Konfirmasi Password..." name="retype" ng-model="re_password_patien" ng-disabled="isvalidating" required>
+                          <p class="error">password tidak sama</p>
+                      </div>
+                      <label>Masukkan Jenis Kelamin :</label>
+
+                      <div class="form-check" ng-repeat="option in occurrenceOptions track by $index" >
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="ad" ng-value="option" ng-model="model.selectedOccurrence_patien" ng-disabled="isvalidating">{{ option }}
+                      </label>
+                      </div>
+
+
+                      <div class="form-check-inline">
+                          <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="agree" ng-model="accept_patien" ng-disabled="isvalidating">saya menyetujui segala syarat dan ketentuan yang berlaku di website ini
+                          </label>
+                      </div>
+                      <button class="btn" type="submit" ng-disabled="isvalidating">daftar</button>
+                  </form>
+              </div>
+
+              <div id="dokter" class="tab-pane container " ng-class="{ active: isSet(2) }" ng-show="isSet(2)" >
+                  <form method="post" ng-submit="Register()">
+                      <div class="form-group">
+                          <p class="error">panjang nama minimal 3 huruf</p>
+                          <label>masukkan nama lengkap :</label>
+                          <input type="text" class="form-control" name="name" placeholder="Nama..." required>
+                      </div>
+                      <div class="form-group">
+                          <label>masukkan email :</label>
+                          <input type="email" class="form-control" name="email" placeholder="Email... "required>
+                      </div>
+                      <div class="form-group">
+                          <p class="error">panjang password minimal 6 huruf</p>
+                          <label>masukkan password</label>
+                          <input type="password" class="form-control" placeholder="Password..." name="password" required>
+                      </div>
+                      <div class="form-group">
+                          <p class="error">password tidak sama</p>
+                          <label>konfirmasi password :</label>
+                          <input type="password" class="form-control" placeholder="Konfirmasi Password..." name="retype" required>
+                      </div>
+                      <label>Masukkan Jenis Kelamin :</label>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="sex" value="P">Pria
+                            </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="sex" value="W">Wanita
+                            </label>
+                      </div>
+                      <div class="form-group">
+                          <label>Masukkan spesialisasi anda :</label>
+                          <select class="form-control" required>
+                              <option>jantung</option>
+                              <option>umum</option>
+                          </select>
+                      </div>
+                      <div class="form-check-inline">
+                          <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="agree" value="1">saya menyetujui segala syarat dan ketentuan yang berlaku di website ini
+                          </label>
+                      </div>
+                      <button type="submit" class="btn">daftar</button>
+                  </form>
+              </div>
+
+              <hr>
+              <p class="haveaccount">sudah punya akun ? Yuk <a href="login.html">login</a></p>
+          </div>
+      </div>
+       </wrapper>
+</div>

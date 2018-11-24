@@ -1,0 +1,83 @@
+body {
+  font-family: "Lato", "Helvetica", sans-serif;
+  margin: 0;
+  width: 100%;
+  background-color: #EBEBE0 !important; }
+  body .bg-green {
+    background-color: #00B894 !important;
+    color: #FFFFFF; }
+  body .bg-blue {
+    background-color: #00CEC9 !important; }
+  body .navbar {
+    display: block; }
+    body .navbar .nav {
+      float: right; }
+    body .navbar .navbar-brand {
+      color: #FFFFFF;
+      margin: 2vh 3vw; }
+    body .navbar #navbardrop {
+      color: #FFFFFF; }
+    body .navbar img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%; }
+
+.container {
+  margin: 15vh 0vw; }
+  .container .row .list {
+    margin: 1vh 0vw; }
+    .container .row .list .kembali {
+      background-color: #FFFFFF;
+      color: #000000;
+      padding: 1vh 2vw;
+      width: 10vw;
+      margin: 2vh 0vw;
+      display: block; }
+    .container .row .list .row .list-content {
+      margin: 2vh 0vw 1vh 0vw;
+      border: solid 2px #ebebe0;
+      background-color: #FFFFFF;
+      padding: 1.5vh 1vw;
+      text-transform: capitalize; }
+      .container .row .list .row .list-content img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%; }
+      .container .row .list .row .list-content .spesialis, .container .row .list .row .list-content .harga {
+        font-size: 13px; }
+      .container .row .list .row .list-content .harga {
+        line-height: 1px; }
+      .container .row .list .row .list-content .btn {
+        margin: 3vh 0vw;
+        width: 100%; }
+      .container .row .list .row .list-content a:hover {
+        color: #FFFFFF; }
+  .container .row .maps #map {
+    position: absolute;
+    left: 10vh;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    min-height: 50vh;
+    overflow-x: hidden; }
+
+@media only screen and (max-width: 575px) {
+  body {
+    overflow-x: hidden; }
+
+  .container .row .list .kembali {
+    width: 30vw; }
+  .container .row .list .row .list-content {
+    text-align: center;
+    margin: 0vh 1vw; }
+  .container .row .maps #map {
+    top: 5vh;
+    left: 0vw; } }
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .container .row .list .kembali {
+    width: 10vw;
+    -webkit-margin-top: 30vh; }
+  .container .row .maps #map {
+    left: 0px; } }
+
+/*# sourceMappingURL=caridokter.css.map */

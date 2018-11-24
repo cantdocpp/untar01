@@ -1,0 +1,145 @@
+<link rel="stylesheet" href="./css/dashboardpasien.css">
+
+<nav class="navbar navbar-expand-sm fixed-top bg-green">
+    <a class="navbar-brand" href="home.html">LOGO</a>
+    <ul class="nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown"><img src="asset/sule-kecewa_20160621_214123.jpg"
+                    alt="Profile Image"> Hi,{{get_name}}</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="">Profile</a>
+                <a class="dropdown-item" href="">Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<main class="container-fluid">
+    <div class="row">
+        <!--SIDEBAR-->
+        <div class="aside  bg-white col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+            <img src="asset/sule-kecewa_20160621_214123.jpg" alt="User Image" class="img-fluid mx-auto d-block">
+            <p class="text-center">Hi {{get_name}}</p>
+            <hr>
+            <ul class="nav nav-pills">
+
+                <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#!/pasien/pemesanan"><i
+                            class="fas fa-notes-medical fa-lg"></i>Pemesanan</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#!/pasien/pencarian"><i
+                            class="fas fa-user-md fa-lg"></i>Cari Dokter</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" ><i class="fas fa-cog fa-lg"></i>
+                        Pengaturan</a></li>
+                <li class="nav-item"><a class="nav-link" ><i class="fas fa-sign-out-alt fa-lg"></i>
+                        Logout</a></li>
+            </ul>
+        </div>
+
+        <!--KONTEN UTAMA-->
+        <div class="main-content bg-white col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            <div class="tab-content">
+                <!--PEMESANAN-->
+                <section class="tab-pane container active" id="pemesanan">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"><a class="nav-link active" data-toggle="pill" ng-class="{ active: isSet(1) }"
+                                ng-click="setTab(1)">Dalam
+                                Proses</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="pill" ng-class="{ active: isSet(2) }"
+                                ng-click="setTab(2)">Selesai</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <!--PEMESANAN SEDANG BERLANGSUNG-->
+                        <div id="proses" class="tab-pane container" ng-class="{ active: isSet(1) }" ng-show="isSet(1)">
+                            <div class="row">
+
+                                <div class="proses-content col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" ng-repeat="data in ongoing">
+                                    <div class="row">
+                                        <div class="image col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                            <img src="asset/sule-kecewa_20160621_214123.jpg" alt="Doctor Image" class="img-fluid mx-auto d-block">
+                                        </div>
+                                        <div class="info col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                            <p class="font-weight-bold">{{data.nama}}</p>
+                                            <p class="spesialis"><i class="fas fa-briefcase-medical fa-lg"></i>
+                                                {{data.spesialist}}</p>
+                                            <p class="nomor"><i class="fas fa-phone fa-lg"></i>
+                                                {{data.nomor_telpdokter}}</p>
+                                        </div>
+                                        <div class="harga col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                            <p>{{data.tanggal}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--PEMESANAN SELESAI-->
+                        <div id="selesai" class="tab-pane container" ng-class="{ active: isSet(2) }" ng-show="isSet(2)"
+                            ng-repeat="data in history">
+                            <div class="row">
+                                <div class="proses-content col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="row">
+                                        <div class="image col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                            <img src="asset/sule-kecewa_20160621_214123.jpg" alt="Doctor Image" class="img-fluid mx-auto d-block">
+                                        </div>
+                                        <div class="info col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                            <p class="font-weight-bold">{{data.nama}}</p>
+                                            <p class="spesialis"><i class="fas fa-briefcase-medical fa-lg"></i>
+                                                {{data.spesialist}}</p>
+                                            <p class="nomor"><i class="fas fa-phone fa-lg"></i>
+                                                {{data.nomor_telpdokter}}</p>
+                                        </div>
+                                        <div class="detail col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                            <button type="button" class="btn bg-green" ng-click="show_detail()">Detail</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- MODAL DETAIL-->
+                            <div class="modal fade" id="detailModal">
+                                <div class="modal-dialog modal-lg dialog-centered">
+                                    <div class="modal-content">
+                                        <section class="customer">
+                                            <div class="row">
+                                                <div class="image col-xl-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                                    <div class="imgcontent">
+                                                        <img src="asset/sule-kecewa_20160621_214123.jpg" alt="Imaget Customer"
+                                                            class="img-fluid mx-auto d-block">
+                                                    </div>
+                                                </div>
+                                                <div class="info col-xl-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                                    <p>{{data.nama_pasien}}</p>
+                                                    <p class="lokasi"><i class="fas fa-map-marker-alt"></i>{{data.alamat_pasien}}</p>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <hr>
+                                        <section class="review">
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <p>review yang anda Berikan :</p>
+                                                    <p class="review font-weight-bold">{{data.review_pasien}}</p>
+                                                    <p>Rekomendasi untuk pasien :</p>
+                                                    <p class="rekomendasi font-weight-bold">{{data.rekomend_dokter}}</p>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <p>resep dokter</p>
+                                                    <p class="resep font-weight-bold">{{data.resepn_pasien}}</p>
+                                                    <p>penyakit pasien :</p>
+                                                    <p class="penyakit font-weight-bold">{{data.penyakit_pasien}}</p>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn bg-danger" data-dismiss="modal">tutup</button>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+</main>

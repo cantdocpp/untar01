@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="css/login.css">
+
+
+<p class="logo">LOGO</p>
+<form method="post" ng-submit="Login()">
+
+
+    <p class="error" ng-if="error.length >0">{{error}}</p>
+
+
+    <div class="form-group">
+        <label>Masukkan Email :</label>
+        <input type="email" class="form-control" name="email" autocomplete="on" placeholder="Email..." ng-model="email" ng-disabled="isvalidating" required >
+    </div>
+    <div class="form-group">
+        <label>Masukkan Password :</label>
+        <input type="password" class="form-control" name="password" placeholder="Password..." ng-disabled="isvalidating" ng-model="password" required>
+    </div>
+
+    <div class="form-group">
+        <label>Login Sebagai :</label>
+
+
+        <div class="form-check" ng-repeat="option in occurrenceOptions track by $index" >
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="ad" ng-value="option" ng-model="model.selectedOccurrence" ng-disabled="isvalidating">{{ option }}
+        </label>
+        </div>
+
+    </div>
+    <div class="form-check">
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" value="1" ng-disabled="isvalidating" ng-model="remember_me">Ingat Saya
+        </label>
+    </div>
+
+
+
+    <button type="submit" class="btn bg-green login" ng-disabled="isvalidating">Login</button>
+    <hr>
+    <a class="btn bg-blue text-center" href="#!daftar" ng-disabled="isvalidating">Daftar</a>
+    <a class="forget" href="forgot.html" ng-disabled="isvalidating">Lupa Password ?</a>
+</form>

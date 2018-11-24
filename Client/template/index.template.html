@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="./css/index.css">
+
+<nav class="navbar navbar-expand-sm fixed-top bg-green">
+    <a class="navbar-brand" href="index.html">{{logo}}</a>
+</nav>
+<section class="welcome container-fluid">
+    <h1 class="text-capitalize">dokter mudah dan cepat</h1>
+    <a class="login btn bg-blue text-capitalize" href="#!login">login</a>
+    <a class="daftar btn bg-green text-capitalize" href="#!daftar">daftar</a>
+</section>
+<section class="benefit container">
+    <h3 class="text-center">mengapa menggunakan kami ?</h3>
+    <div class="row">
+        <div class="col-lg col-sm col-xl berkualitas">
+            <img src="asset/doctor-stethoscope.png" alt="Image Berkualitas">
+            <p class="font-weight-bold">dokter berkualitas</p>
+            <p>dokter dari berbagai spesialis tersedia disini. selain itu, dokter -dokter disini memiliki kualitas yang tak perlu diragukan lagi kualitasnya.</p>
+        </div>
+        <div class="col-lg col-xl harga">
+            <img src="asset/money-bag.png" alt="Image terjangkau">
+            <p class="font-weight-bold">harga terjangkau</p>
+            <p>tak perlu cemas menggunakan dokter disini. karena biaya dokter disini lebih murah dibandingkan dengan di rumah sakit. kamu bakal dapat harga yang miring tapi kualitas dokternya tetap terjamin</p>
+        </div>
+        <div class="col-lg col-sm col-xl puas">
+            <img src="asset/thumbs-up.png" alt="Image puas">
+            <p class="font-weight-bold">memuaskan</p>
+            <p>kepuasan kamu merupakan tujuan utama kami. kami selalu berusaha menyediakan dokter - dokter terbaik untuk kamu dan dapat membantu kamu menjadi lebih sehat</p>
+        </div>
+    </div>
+</section>
+<section class="best container">
+    <div class="row">
+        <div class="dokter col-xs-12 col-sm-12  col-md-8 col-lg-8 col-xl-8">
+            <h3>dokter terbaik</h3>
+
+            <div class="row" >
+                <div class="dokter-content col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" ng-repeat="data in best_doctors">
+                    <div class="row">
+                        <div class="image col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                            <img ngSrc={{data.img_source}}  alt="Doctor Image">
+                        </div>
+                        <div class="info col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+                            <p>{{data.name}}</p>
+                            <p class="spesialis"><i class="fas fa-briefcase-medical"></i> {{data.spesialist}}</p>
+                            <p class="lokasi"><i class="fas fa-map-marker-alt fa-lg"></i> {{data.location}}</p>
+                        </div>
+                        <div class="score col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                            <h3>{{data.rating}}/ 10</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- <div class="apotek col-xs-12 col-sm-12  col-md-4 col-lg-4 col-xl-4">
+            <h3>apotek terbaik</h3>
+            <div class="row">
+                <div class="apotek-content col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="row">
+                        <div class="image col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                            <img src="asset/staf-apotik-k-24-cabang-mesjid-jamik-nurul-oktaviani-ketika-melayani-pembeli_20180216_181527.jpg" alt="Apotek Image">
+                        </div>
+                        <div class="info col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+                            <p>Apotek Kasih ibu</p>
+                            <p class="lokasi"><i class="fas fa-map-marker-alt fa-lg"></i> jakarta</p>
+                        </div>
+                        <div class="score col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                            <h3>7.0 / 10</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</section>
+<footer class="container-fluid text-capitalize">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+            <a href="#">Tentang Kami</a>
+            <a href="#">kontak</a>
+            <a href="#">bergabung dengan kami</a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+            <a href="#">privasi</a>
+            <a href="#">syarat dan ketentuan</a>
+            <a href="#">kritik dan saran</a>
+        </div>
+    </div>
+    <hr>
+    <p class="text-center">Copyright 2018</p>
+</footer>

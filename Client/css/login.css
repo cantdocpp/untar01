@@ -1,0 +1,42 @@
+body {
+  background-color: #353B48;
+  color: #FFFFFF;
+  margin: 15vh 0vw; }
+  body .bg-green {
+    background-color: #00B894 !important; }
+  body .bg-blue {
+    background-color: #00CEC9 !important;
+    margin: 5vh 20vw;
+    width: 10vw;
+    border-radius: 10px; }
+  body .logo {
+    text-align: center; }
+  body form {
+    margin: 10vh auto;
+    width: 50%; }
+    body form .error {
+      color: red; }
+    body form .form-control {
+      border-radius: initial !important; }
+    body form .login {
+      margin: 5vh 0vw;
+      color: #FFFFFF;
+      border-radius: 10px;
+      width: 100%; }
+    body form hr {
+      border: solid 2px #FFFFFF; }
+    body form a {
+      color: #FFFFFF; }
+    body form a:hover {
+      color: #FFFFFF; }
+    body form .forget {
+      display: block;
+      margin: 0px auto;
+      width: 120px; }
+
+@media only screen and (max-width: 800px) {
+  form .btn {
+    min-width: 20vw;
+    margin: 5vh 15vw; } }
+
+/*# sourceMappingURL=login.css.map */
