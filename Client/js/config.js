@@ -17,7 +17,7 @@ m.config(function($routeProvider) {
     })
     .when("/pasien/pemesanan",{
         templateUrl:'./template/pasien/pemesanan.template.html',
-        controller:"PesanController"
+        controller:"PesanpasienController"
     })
     .when("/pasien/pencarian",{
         templateUrl:'./template/pasien/pencarian.template.html',

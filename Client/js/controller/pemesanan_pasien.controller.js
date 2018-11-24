@@ -1,4 +1,4 @@
-m.controller('PesanController', ['$scope', '$http', '$rootScope', 'Auth', function ($scope, $http, $rootScope, Auth) {
+m.controller('PesanpasienController', ['$scope', '$http', '$rootScope', 'Auth', function ($scope, $http, $rootScope, Auth) {
 
 
 
