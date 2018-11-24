@@ -33,7 +33,8 @@ m.config(function($routeProvider) {
         }
     })
     .when("/dokter/pemesanan",{
-        templateUrl:'./template/pasien/dalamproses.template.html'
+        templateUrl:'./template/dokter/pemesanan.template.html',
+        controller:"PesandokterController"
     })
     .otherwise({redirectTo: '/'});
 });
