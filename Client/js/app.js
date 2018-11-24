@@ -6,13 +6,13 @@ m.run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth)
     $rootScope.$on('$routeChangeStart', function (event) {
 
         $rootScope.$broadcast('currentlocation', $location.$$path);
-
+         console.log($location.$$path);   
         
         var restrict = ['/dokter/pemesanan', '/pasien/pemesanan','/pasien/pencarian','/pasien/profil'];
         var find_restict=0;
         for (var t = 0; t < restrict.length; t++) {
 
-            if ($location.$$path === restrict[t]) {
+            if ($location.$$path.match(restrict[t])) {
                 //console.log('DENY');
                 if (Auth.get_credentials_temp()) {
                     

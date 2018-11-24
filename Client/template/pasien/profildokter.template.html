@@ -23,12 +23,12 @@
                         </div>
                     </div>
                     <div class="info col-xl-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                        <p class="name">dr. bernard mahfouz</p>
-                        <p class="spesialisasi"><i class="fas fa-briefcase-medical fa-lg"></i> spesialis jantung</p>
-                        <p class="lokasi"><i class="fas fa-map-marker-alt fa-lg"></i> jakardah</p>
+                        <p class="name">{{nama_dokter}}</p>
+                        <p class="spesialisasi"><i class="fas fa-briefcase-medical fa-lg"></i>{{spesialist_dokter}}</p>
+                        <p class="lokasi"><i class="fas fa-map-marker-alt fa-lg"></i>{{alamat_dokter}}</p>
                     </div>
                     <div class="score col-xl-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                        <div class="score-content"><p>75</p></div>
+                        <div class="score-content"><p>{{rating_dokter}}</p></div>
                     </div>
                     <div class="pesan col-xl-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <a class="btn" href="pesan.html">pesan</a>
@@ -43,22 +43,15 @@
                 <div class="tab-content">
                     <section class="tab-pane container active" id="review">
                         <div class="row">
-                            <div class="review-content col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="review-content col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" ng-repeat="data in Review_pasien">
                                 <div class="profile">
-                                    <p><b>Sule</b> 7.5</p>
+                                    <p><b>{{data.nama_pasien}}</b>{{data.rating_pasien}}</p>
                                 </div>
                                 <div class="review-text">
-                                    <p>Top lah dokternya. setelah saya pake dokter bernard, yang tadinya saya batuk doang, sekarang malah jadi muntah darah</p>
+                                    <p>{{data.review_pasien}}</p>
                                 </div>
-                            </div>
-                            <div class="review-content col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                <div class="profile">
-                                    <p><b>Sule</b> 7.5</p>
-                                </div>
-                                <div class="review-text">
-                                    <p>Top lah dokternya. setelah saya pake dokter bernard, yang tadinya saya batuk doang, sekarang malah jadi muntah darah</p>
-                                </div>
-                            </div>
+                        </div>
+
                         </div>
                     </section>
                     <section class="tab-pane container fade" id="info"> 
