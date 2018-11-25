@@ -1,217 +1,231 @@
 <link rel="stylesheet" href="css/dashboarddokter.css">
 
 
-        <!-- NAVIGASI-->
-        <nav class="navbar navbar-expand-sm fixed-top bg-green">
-            <a class="navbar-brand" href="home.html">LOGO</a>
-            <ul class="nav">
-                <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><img src="asset/sule-kecewa_20160621_214123.jpg" alt="Profile Image"> Hi, Arief</a>
-                      <div class="dropdown-menu">
-                            <a class="dropdown-item" href="index.html">Logout</a>
-                      </div>
-                </li>
-            </ul>
-        </nav>
-        
-        <main class="container-fluid">
-            <div class="row">
-                <!--SIDEBAR-->
-                <div class="aside  bg-white col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-                    <img src="asset/sule-kecewa_20160621_214123.jpg" alt="User Image" class="img-fluid mx-auto d-block">
-                    <p class="text-center">Hi Arief</p>
-                    <hr>
-                    <ul class="nav nav-pills">
-                        <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#pemesanan" ><i class="fas fa-notes-medical fa-lg"></i> Pemesanan</a></li>
-                        <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#profil"><i class="fas fa-user-md fa-lg"></i>     Profil</a></li>
-                        <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#setting"><i class="fas fa-cog fa-lg"></i> Pengaturan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-sign-out-alt fa-lg"></i> Logout</a></li>
-                    </ul>
+<!-- NAVIGASI-->
+<nav class="navbar navbar-expand-sm fixed-top bg-green">
+    <a class="navbar-brand" href="home.html">LOGO</a>
+    <ul class="nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><img src="asset/sule-kecewa_20160621_214123.jpg"
+                    alt="Profile Image"> Hi, Arief</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="index.html">Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<main class="container-fluid">
+    <div class="row">
+
+        <!-- MODAL ALERT -->
+        <div class="modal fade" id="alertModal">
+            <div class="modal-dialog modal-lg dialog-centered">
+                <div class="modal-content">
+
+                    <!-- INFORMASI CUSTOMER-->
+                    <div class="form-alert">
+
+
+                        <!--FORM DIAGNOSIS DIISI OLEH DOKTER-->
+                        <form method="post">
+                            <p>Nama Pasien:</p>
+
+                            <button type="submit" class="text-capitalize btn bg-green">buat diagnosis</button>
+                        </form>
+                    </div>
+
                 </div>
-                
-                <!--KONTEN UTAMA-->
-                <div class="main-content bg-white col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            </div>
+        </div>
+
+
+        <!--SIDEBAR-->
+        <div class="aside  bg-white col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+            <img src="asset/sule-kecewa_20160621_214123.jpg" alt="User Image" class="img-fluid mx-auto d-block">
+            <p class="text-center">Hi Arief</p>
+            <hr>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#pemesanan"><i class="fas fa-notes-medical fa-lg"></i>
+                        Pemesanan</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#profil"><i class="fas fa-user-md fa-lg"></i>
+                        Profil</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#setting"><i class="fas fa-cog fa-lg"></i>
+                        Pengaturan</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-sign-out-alt fa-lg"></i>
+                        Logout</a></li>
+            </ul>
+        </div>
+
+        <!--KONTEN UTAMA-->
+        <div class="main-content bg-white col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            <div class="tab-content">
+
+                <!--PEMESANAN-->
+                <section class="tab-pane container active" id="pemesanan">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"><a class="nav-link active" data-toggle="pill" ng-class="{ active: isSet(1) }" ng-click="setTab(1)">Pemesanan</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="pill" ng-class="{ active: isSet(2) }" ng-click="setTab(2)">Riwayat pasien</a></li>
+                    </ul>
                     <div class="tab-content">
-                        
-                        <!--PEMESANAN-->
-                        <section class="tab-pane container active" id="pemesanan">
-                            <ul class="nav nav-pills">
-                                <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#proses">Dalam Proses</a></li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#selesai">Selesai</a></li>
-                            </ul>
-                            <div class="tab-content">
-                                
-                                <!--PEMESANAN SEDANG BERLANGSUNG-->
-                                <div id="proses" class="tab-pane container active">
-                                    <div class="row">
-                                        <div class="proses-content col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <!--PEMESANAN SEDANG BERLANGSUNG-->
+                        <div id="proses" class="tab-pane container"ng-class="{ active: isSet(1) }" ng-show="isSet(1)">
+
+                            <!--MODAL DIAGNOSIS DOKTER-->
+                            <div class="modal fade" id="diagnosis">
+                                <div class="modal-dialog modal-lg dialog-centered">
+                                    <div class="modal-content">
+
+                                        <!-- INFORMASI CUSTOMER-->
+                                        <div class="customer">
                                             <div class="row">
-                                                
-                                                <div class="image col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                                                    <img src="asset/sule-kecewa_20160621_214123.jpg" alt="Doctor Image" class="img-fluid mx-auto d-block">
-                                                </div>
-                                                <div class="info col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                                    <p class="font-weight-bold">Sule</p>
-                                                    <p class="font-weight"><i class="fas fa-map-marker-alt"></i> jakarta</p>
-                                                    <p class="nomor"><i class="fas fa-phone fa-lg"></i> 02112345567</p>
-                                                </div>
-                                                <div class="diagnosis col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                                                    <button type="button" class="btn bg-green" data-toggle="modal" data-target="#diagnosis">Buat Diagnosis</button>
-                                                </div>
-                                            </div>
-                                            
-                                            <!--MODAL DIAGNOSIS DOKTER-->
-                                            <div class="modal fade" id="diagnosis">
-                                                <div class="modal-dialog modal-lg dialog-centered">
-                                                    <div class="modal-content">
-                                                        
-                                                        <!-- INFORMASI CUSTOMER-->
-                                                        <div class="customer">
-                                                            <div class="row">
-                                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                                                    <div class="image">
-                                                                        <img src="asset/sule-kecewa_20160621_214123.jpg" class="img-fluid mx-auto d-block" alt="Customer Image">
-                                                                    </div>
-                                                                    <p class="text-center">Areif</p>
-                                                                </div>
-                                                                <div style="line-height: 1px;margin-top: 3vh;" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                                                    <p class="text-right">Jl. ABC No. 50 Jakarta Pusat</p>
-                                                                    <p class="text-right">tanggal pemesanan :</p>
-                                                                    <p class="text-right">11/11/2018 11:12</p>
-                                                                </div>
-                                                            </div>
-                                                            <hr>
-                                                            
-                                                            <!--FORM DIAGNOSIS DIISI OLEH DOKTER-->
-                                                            <form method="post">
-                                                                <div class="form-group">
-                                                                    <label>masukkan keluhan pasien :</label>
-                                                                    <textarea class="form-control" name="keluhan" placeholder="Keluhan Pasien..." required></textarea>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Masukkan resep obat untuk pasien :</label>
-                                                                    <textarea class="form-control" name="resep" placeholder="Resep Obat..."></textarea>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>masukkan rekomendasi dokter :</label>
-                                                                    <textarea class="form-control" name="rekomendasi" placeholder="Rekomendasi Dokter..." required></textarea>
-                                                                </div>
-                                                                <button type="submit" class="text-capitalize btn bg-green">buat diagnosis</button>
-                                                            </form>
-                                                        </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <div class="image">
+                                                        <img src="asset/sule-kecewa_20160621_214123.jpg" class="img-fluid mx-auto d-block"
+                                                            alt="Customer Image">
                                                     </div>
+                                                    <p class="text-center" >{{modal_pname}}</p>
+                                                </div>
+                                                <div style="line-height: 1px;margin-top: 3vh;" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <p class="text-right">{{modal_paddress}}</p>
+                                                    <p class="text-right">tanggal pemesanan :</p>
+                                                    <p class="text-right">{{modal_pdate}}</p>
+                                                </div>
+                                            </div>
+                                            <hr>
+
+                                            <!--FORM DIAGNOSIS DIISI OLEH DOKTER-->
+                                            <form method="post">
+                                                <div class="form-group">
+                                                    <label>masukkan keluhan pasien :</label>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                        Voluptate perferendis sed similique quisquam porro, voluptates
+                                                        molestiae, dicta fugiat, natus cum facilis consequatur? Iusto
+                                                        magnam consequuntur aliquam aliquid minima, culpa quo.
+                                                    </p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Masukkan resep obat untuk pasien :</label>
+                                                    <textarea class="form-control" name="resep" placeholder="Resep Obat..."
+                                                        ng-model="modal_presep"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>masukkan rekomendasi dokter :</label>
+                                                    <textarea class="form-control" name="rekomendasi" placeholder="Rekomendasi Dokter..."
+                                                        ng-model="modal_precomend"></textarea>
                                                 </div>
                                                 
-                                            </div>
-                                        </div> 
+                                                <button type="submit" class="text-capitalize btn bg-green" ng-click="buatdiagnosis()">buat
+                                                    diagnosis</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- PEMESANAN SELESAI-->
-                                <div id="selesai" class="tab-pane container fade">
+
+                            </div>
+
+                            <div class="row">
+                                <div class="proses-content col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" ng-repeat="data in Data_pasien">
                                     <div class="row">
-                                        <div class="proses-content col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                            <div class="row">
-                                                <div class="image col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                                                    <img src="asset/sule-kecewa_20160621_214123.jpg" alt="Doctor Image" class="img-fluid mx-auto d-block">
-                                                </div>
-                                                <div class="info col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                                    <p class="font-weight-bold">Dr. Bernard Mahfouz</p>
-                                                    <p><i class="fas fa-map-marker-alt"></i> jakarta</p>
-                                                    <p class="nomor"><i class="fas fa-phone fa-lg"></i> 02112345567</p>
-                                                </div>
-                                                <div class="detail col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                                                    <button type="button" class="btn bg-green" data-toggle="modal" data-target="#detailModal">Detail</button>
-                                                </div>
-                                            </div>
-                                        </div>        
+
+                                        <div class="image col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                            <img src="asset/sule-kecewa_20160621_214123.jpg" alt="Doctor Image" class="img-fluid mx-auto d-block">
+                                        </div>
+                                        <div class="info col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                            <p class="font-weight-bold">{{data.nama_pasien }}</p>
+                                            <p class="font-weight"><i class="fas fa-map-marker-alt"></i>{{data.alamat_pasien}}</p>
+                                            <p class="nomor"><i class="fas fa-phone fa-lg"></i>{{data.no_telp_pasien}}</p>
+                                            <p class="nomor"><i class="fas fa-calendar fa-lg"></i>{{data.tanggal_pasien |convert_timestamp}}</p>
+                                        </div>
+                                        <div class="diagnosis col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                            <button type="button" class="btn bg-green" data-toggle="modal" ng-click="open_modal($event)"
+                                                data-posisi="{{$index}}">Buat Diagnosis</button>
+                                            <button type="button" class="btn bg-red" data-toggle="modal" ng-click="batal($event)"
+                                                data-posisi="{{$index}}">Batal Perjanjian</button>
+                                        </div>
                                     </div>
-                                    
-                                    <!-- MODAL DETAIL-->
-                                    <div class="modal fade" id="detailModal">
-                                        <div class="modal-dialog modal-lg dialog-centered">
-                                            <div class="modal-content">
-                                                <section class="customer">
-                                                    <div class="row">
-                                                        <div class="image col-xl-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                                                            <div class="imgcontent">
-                                                                <img src="asset/sule-kecewa_20160621_214123.jpg" alt="Imaget Customer" class="img-fluid mx-auto d-block">
-                                                            </div>
-                                                        </div>
-                                                        <div class="info col-xl-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                                                            <p>sule</p>
-                                                            <p class="lokasi"><i class="fas fa-map-marker-alt"></i> jl.abc</p>
-                                                        </div>
-                                                        <div class="score col-xl-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                                                            <p>skor yang anda dapatkan :</p>
-                                                            <p>75</p>
-                                                        </div>
-                                                        <div class="price col-xl-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                                            <p>harga :</p>
-                                                            <p>Rp.7088080</p>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                                <hr>
-                                                <section class="review">
-                                                    <div class="row">
-                                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                                            <p>review yang anda dapatkan :</p>
-                                                            <p class="review font-weight-bold">Top lah dokternya. setelah saya pake dokter bernard, yang tadinya saya batuk doang, sekarang malah jadi muntah darah</p>
-                                                            <p>Rekomendasi untuk pasien :</p>
-                                                            <p class="rekomendasi font-weight-bold">Segera ke rumah sakit terdekat untuk mengetahui lebih lanjut mengenai penyakit anda karena saya cuma dokter biasa akan lebih bagus kalau anda langsung ke rumah sakit</p>
-                                                        </div>
-                                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                                            <p>resep dokter</p>
-                                                            <p class="resep font-weight-bold">Beli obh obat batuk minum 3x sehari sesudah makan</p>
-                                                            <p>penyakit pasien :</p>
-                                                            <p class="penyakit font-weight-bold">masuk angin</p>
-                                                        </div>
-                                                    </div>
-                                                    <button type="button" class="btn bg-danger" data-dismiss="modal">tutup</button>
-                                                </section>
-                                            </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- RIWAYAT PASIEN-->
+                        <div id="selesai" class="tab-pane container" ng-class="{ active: isSet(2) }" ng-show="isSet(2)">
+
+
+                            <div class="row">
+                                <div class="proses-content col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" ng-repeat="data in Riwayat_pasien">
+                                    <div class="row">
+                                        <div class="image col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                            <img src="asset/sule-kecewa_20160621_214123.jpg" alt="Doctor Image" class="img-fluid mx-auto d-block">
+                                        </div>
+                                        <div class="info col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                            <p class="font-weight-bold">{{data.nama_pasien}}</p>
+                                            <p><i class="fas fa-map-marker-alt"></i>{{data.alamat_pasien}}</p>
+                                            <p class="nomor"><i class="fas fa-phone fa-lg"></i>{{data.nomortelp_pasien}}</p>
+                                        </div>
+                                        <div class="detail col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                            <button type="button" class="btn bg-green" data-toggle="modal" data-target="#detailModal">Detail</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </section>
-                        
-                        <section class="tab-pane container fade" id="profil">
-                            <p>nama :</p>
-                            <p class="font-weight-bold">dr. abc</p>
-                            <p>pendidikan :</p>
-                            <p class="font-weight-bold">bsi</p>
-                            <p>pengalaman :</p>
-                            <p class="font-weight-bold">jdi suster</p>
-                            <p>jam praktik</p>
-                            <p class="font-weight-bold">10:00 - 12:00</p>
-                        </section>
-                        
-                        <!-- TAB SETTING-->
-                        <section class="tab-pane container fade" id="setting">
-                            <form method="post">
-                                <div class="form-group">
-                                    <label>Ubah Foto :</label>
-                                    <input type="file" name="image">
+
+                            <!-- MODAL DETAIL-->
+                            <div class="modal fade" id="detailModal">
+                                <div class="modal-dialog modal-lg dialog-centered">
+                                    <div class="modal-content">
+                                        <section class="customer">
+                                            <div class="row">
+                                                <div class="image col-xl-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                                    <div class="imgcontent">
+                                                        <img src="asset/sule-kecewa_20160621_214123.jpg" alt="Imaget Customer"
+                                                            class="img-fluid mx-auto d-block">
+                                                    </div>
+                                                </div>
+                                                <div class="info col-xl-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                                    <p>sule</p>
+                                                    <p class="lokasi"><i class="fas fa-map-marker-alt"></i> jl.abc</p>
+                                                </div>
+                                                <div class="score col-xl-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                                    <p>skor yang anda dapatkan :</p>
+                                                    <p>75</p>
+                                                </div>
+
+                                            </div>
+                                        </section>
+                                        <hr>
+                                        <section class="review">
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <p>review yang anda dapatkan :</p>
+                                                    <p class="review font-weight-bold">Top lah dokternya. setelah saya
+                                                        pake dokter bernard, yang tadinya saya batuk doang, sekarang
+                                                        malah jadi muntah darah</p>
+                                                    <p>Rekomendasi untuk pasien :</p>
+                                                    <p class="rekomendasi font-weight-bold">Segera ke rumah sakit
+                                                        terdekat untuk mengetahui lebih lanjut mengenai penyakit anda
+                                                        karena saya cuma dokter biasa akan lebih bagus kalau anda
+                                                        langsung ke rumah sakit</p>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <p>resep dokter</p>
+                                                    <p class="resep font-weight-bold">Beli obh obat batuk minum 3x
+                                                        sehari sesudah makan</p>
+                                                    <p>penyakit pasien :</p>
+                                                    <p class="penyakit font-weight-bold">masuk angin</p>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn bg-danger" data-dismiss="modal">tutup</button>
+                                        </section>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>ubah alamat :</label>
-                                    <textarea class="form-control" name="alamat" placeholder="Alamat..."></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <p class="error">panjang password minimal 6 karakter</p>
-                                    <label>ubah password :</label>
-                                    <input type="password" class="form-control" name="password" placeholder="Password...">
-                                </div>
-                                <div class="form-group">
-                                    <p class="error">password tidak sama</p>
-                                    <label>konfirmasi password</label>
-                                    <input class="form-control" type="password" name="retype" placeholder="Konfirmasi Password...">
-                                </div>
-                                <button type="submit" class="text-capitalize btn bg-green">ubah</button>
-                            </form>
-                        </section>
-                    </div>  
-                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </main>
+        </div>
+    </div>
+</main>

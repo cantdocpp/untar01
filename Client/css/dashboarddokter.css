@@ -7,6 +7,10 @@ body {
   body .bg-green {
     background-color: #00B894 !important;
     color: #FFFFFF; }
+  body .bg-red{
+    background-color: rgb(216, 9, 9) !important;
+    color: #FFFFFF; 
+  }
   body .bg-blue {
     background-color: #00CEC9 !important; }
   body .navbar {
