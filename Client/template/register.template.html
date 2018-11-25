@@ -5,7 +5,7 @@
 <div class="row">
       <div class="text col-xl-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
           <h1>Daftar karena sehat gak mahal lagi. karena kamu berhak untuk sehat</h1>
-          <p>sudah punya akun ? ayo <a href="login.html">login</a></p>
+          <p>sudah punya akun ? ayo <a href="#!login">login</a></p>
       </div>
       <div class="form col-xl-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
           <ul class="nav nav-pills">
@@ -13,9 +13,11 @@
               <li class="nav-list"><a class="nav-link" data-toggle="pill" ng-class="{ active: isSet(2) }" ng-click="setTab(2)" ng-disabled="isvalidating">Dokter</a></li>
           </ul>
           <div class="tab-content">
+            
 
               <div id="user" class="tab-pane container" ng-class="{ active: isSet(1) }" ng-show="isSet(1)">
-                  <form method="post" ng-submit="Register()">
+                    <p class="error">{{error_patien}}</p> 
+                <form method="post" ng-submit="Register()">
                       <div class="form-group">
                           <label>masukkan nama lengkap :</label>
                           <input type="text" class="form-control" name="name" placeholder="Nama..." ng-model="name_patien" ng-disabled="isvalidating" required>
@@ -38,7 +40,7 @@
                       </div>
                       <label>Masukkan Jenis Kelamin :</label>
 
-                      <div class="form-check" ng-repeat="option in occurrenceOptions track by $index" >
+                      <div class="form-check" ng-repeat="option in occurrenceOptions_patien track by $index" >
                       <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="ad" ng-value="option" ng-model="model.selectedOccurrence_patien" ng-disabled="isvalidating">{{ option }}
                       </label>
@@ -88,9 +90,8 @@
                       </div>
                       <div class="form-group">
                           <label>Masukkan spesialisasi anda :</label>
-                          <select class="form-control" required>
-                              <option>jantung</option>
-                              <option>umum</option>
+                          <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="Spesialist.model">
+                                <option ng-repeat="option in Spesialist.availableOptions" value="{{option.id}}">{{option.name}}</option>
                           </select>
                       </div>
                       <div class="form-check-inline">

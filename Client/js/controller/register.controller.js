@@ -1,7 +1,8 @@
-m.controller('registercontroller', function ($scope, $http) {
+m.controller('registercontroller', function ($scope, $http,Api) {
 
   $scope.isvalidating = false;
-  $scope.error = ['Email Atau Password Salah'];
+  $scope.error_patien = "";
+  $scope.error_doctor= "";
 
   $scope.occurrenceOptions_patien = [];
 
@@ -11,10 +12,15 @@ m.controller('registercontroller', function ($scope, $http) {
   $scope.model_patien = {}; //defined a model object
   $scope.model_patien.selectedOccurrence_patien = 'current'; //and defined property in it
 
-  $scope.Spesialist=[
-    {name : "Dokter Jantung"},
-    {name : "Dokter Mata"}
-  ];  
+
+  $scope.Spesialist = {
+    model: null,
+    availableOptions: [
+      {id: '1', name: 'Option A'},
+      {id: '2', name: 'Option B'},
+      {id: '3', name: 'Option C'}
+    ]
+   };
   
   $scope.accept_patien
   
@@ -33,8 +39,26 @@ m.controller('registercontroller', function ($scope, $http) {
 
   $scope.Register = function () {
 
+    $scope.error_patien=[];
+    $scope.error_doctor= [];
+
     if ($scope.tab == 1) {
-        asyncRegisterAsPatient($scope.name_patien,$scope.email_patien,$scope.password_patien,$scope.model_patien.selectedOccurrence_patien);
+      // var DATA={};
+      // DATA.name=$scope.name_patien;
+      // DATA.email=$scope.email_patien;
+      // DATA.password=$scope.password_patien;
+      // DATA.gender=$scope.model_patien.selectedOccurrence_patien;
+      // var promise=Api.register('patien',DATA);
+
+      // promise.then(function(greeting) {
+      //   alert('Success: ' + greeting);
+      // }, function(reason) {
+      //   alert('Failed: ' + reason);
+      // }, function(update) {
+      //   alert('Got notification: ' + update);
+      // });
+      $scope.error_patien='ERROR in server';
+        
     } else if ($scope.tab == 2) {
 
 
@@ -42,50 +66,4 @@ m.controller('registercontroller', function ($scope, $http) {
     }
 
   }
-
-
-  function asyncRegisterAsPatient(name,email,password,gender) {
-    
-    var deferred = $q.defer();
-
-    setTimeout(function() {
-      deferred.notify();
-  
-      var URL="";
-      var DATA={};
-      DATA.name=name;
-      DATA.email=email;
-      DATA.password=password;
-      DATA.gender=gender;
-  
-      $http({
-      method: 'Post',
-      url :  URL,
-      headers: {
-           'Content-Type': 'application/json',
-           'Access-Control-Allow-Origin': '*'
-       },
-      data : DATA
-    }).then(function successCallback(response) {
-          console.table(response.status);
-
-          deferred.resolve();
-  
-        }, function errorCallback(response) {
-          //response.data
-          deferred.reject();
-        });
-      }, 200);
-  
-    return deferred.promise;
-  }
-
-
-
-
-
-
-
-
-
 });
