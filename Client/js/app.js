@@ -35,7 +35,7 @@ m.run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth)
                 
                 if (Auth.get_credentials_temp()) {
                    
-                    if (Auth.encodeJWT(Auth.get_credentials_temp()).role == "patien") {
+                    if (Auth.encodeJWT(Auth.get_credentials_temp()).role == "patient") {
                         $location.path('/pasien/pemesanan');
                     }else if(Auth.encodeJWT(Auth.get_credentials_temp()).role == "dokter")
                     {
@@ -44,7 +44,7 @@ m.run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth)
 
                 } else if (Auth.get_credentials_perm()) {
             
-                    if (Auth.encodeJWT(Auth.get_credentials_perm()).role == "patien") {
+                    if (Auth.encodeJWT(Auth.get_credentials_perm()).role == "patient") {
                         $location.path('/pasien/pemesanan');
                     }else if(Auth.encodeJWT(Auth.get_credentials_perm()).role == "dokter")
                     {

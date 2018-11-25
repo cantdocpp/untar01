@@ -17,15 +17,15 @@ let patientSchema = mongoose.Schema({
     required: true
   },
   alamat: {
-    type: String,
-    required: true
+    type: String
   },
   channel_id: {
     type: String,
     unique: true
   },
-  is_active: {
-    type: Boolean
+  gender: {
+    type: String,
+    required: true
   },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }

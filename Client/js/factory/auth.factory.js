@@ -47,9 +47,14 @@ factory.encodeJWT=function(token){
               return JSON.parse(window.atob(base64));
 }
 
+factory.logout=function(){
+    var name="token";
+    document.cookie = name+'=; Max-Age=-99999999;';
+    localStorage.removeItem("token")
+}
+
+
 return factory;
 });
 
-// function eraseCookie(name) {
-//     document.cookie = name+'=; Max-Age=-99999999;';
-// }
+

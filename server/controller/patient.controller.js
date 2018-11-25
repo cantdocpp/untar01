@@ -14,7 +14,10 @@ var pusher = new Pusher({
 
 module.exports = {
   registerPatient: (req, res) => {
-    Patient.create(req.body)
+	var info = req.body;
+	info.channel_id =random_id();
+
+     Patient.create(info)
       .then(response => {
         console.log(req.body);
         console.log(response);
@@ -27,18 +30,26 @@ module.exports = {
         res.status(500).json({
           message: "something wrong is happening :" + err
         });
-      });
+      }); 
+	  
+	 function random_id(){
+		 return Math.floor(Math.random() * Math.floor(100000000));
+		 } 
   },
 
   getAllPatient: (req, res) => {
     Patient.find({})
       .then(userData => {
-        pusher.trigger("my-channel", "my-event", {
+       /*  pusher.trigger("my-channel", "my-event", {
           data: userData
-        });
+        }); */
+		
+		
         res.status(200).json({
           data: userData
         });
+		
+		
       })
       .then(function(user) {
         console.log("kepangil");
@@ -80,7 +91,7 @@ module.exports = {
         console.log(hashedPassword, "<<<<<<<<<<< hashed password");
         if (bcrypt.compareSync(req.body.password, hashedPassword)) {
           var token = jwt.sign(
-            { email: user.email, id: user._id, role: "patient" },
+            { email: user.email, id: user._id, role: "patient",channel_id:user.channel_id},
             "shhhhh"
           );
           console.log("testing");

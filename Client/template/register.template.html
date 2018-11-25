@@ -17,7 +17,7 @@
 
               <div id="user" class="tab-pane container" ng-class="{ active: isSet(1) }" ng-show="isSet(1)">
                     <p class="error">{{error_patien}}</p> 
-                <form method="post" ng-submit="Register()">
+                <form method="post" ng-submit="Register()" id="formpasien">
                       <div class="form-group">
                           <label>masukkan nama lengkap :</label>
                           <input type="text" class="form-control" name="name" placeholder="Nama..." ng-model="name_patien" ng-disabled="isvalidating" required>
@@ -40,9 +40,9 @@
                       </div>
                       <label>Masukkan Jenis Kelamin :</label>
 
-                      <div class="form-check" ng-repeat="option in occurrenceOptions_patien track by $index" >
+                      <div class="form-check" ng-repeat="option in occurrenceOptions track by $index" >
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="ad" ng-value="option" ng-model="model.selectedOccurrence_patien" ng-disabled="isvalidating">{{ option }}
+                        <input type="radio" class="form-check-input" name="ad" ng-value="option" ng-model="model.patient_gender" ng-disabled="isvalidating">{{ option }}
                       </label>
                       </div>
 
@@ -58,48 +58,39 @@
 
               <div id="dokter" class="tab-pane container " ng-class="{ active: isSet(2) }" ng-show="isSet(2)" >
                   <form method="post" ng-submit="Register()">
+                        <p class="error">{{error_patien}}</p> 
                       <div class="form-group">
-                          <p class="error">panjang nama minimal 3 huruf</p>
+                          
                           <label>masukkan nama lengkap :</label>
-                          <input type="text" class="form-control" name="name" placeholder="Nama..." required>
+                          <input type="text" class="form-control" name="name" placeholder="Nama..." required ng-disabled="isvalidating" ng-model="name_dokter">
+                          <p class="error">panjang nama minimal 3 huruf</p>
                       </div>
                       <div class="form-group">
                           <label>masukkan email :</label>
-                          <input type="email" class="form-control" name="email" placeholder="Email... "required>
+                          <input type="email" class="form-control" name="email" placeholder="Email... "required ng-disabled="isvalidating" ng-model="email_dokter">
                       </div>
                       <div class="form-group">
                           <p class="error">panjang password minimal 6 huruf</p>
                           <label>masukkan password</label>
-                          <input type="password" class="form-control" placeholder="Password..." name="password" required>
+                          <input type="password" class="form-control" placeholder="Password..." name="password" required ng-disabled="isvalidating" ng-model="password_dokter">
                       </div>
                       <div class="form-group">
                           <p class="error">password tidak sama</p>
                           <label>konfirmasi password :</label>
-                          <input type="password" class="form-control" placeholder="Konfirmasi Password..." name="retype" required>
-                      </div>
-                      <label>Masukkan Jenis Kelamin :</label>
-                      <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="sex" value="P">Pria
-                            </label>
-                      </div>
-                      <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="sex" value="W">Wanita
-                            </label>
+                          <input type="password" class="form-control" placeholder="Konfirmasi Password..." name="retype" required ng-disabled="isvalidating">
                       </div>
                       <div class="form-group">
                           <label>Masukkan spesialisasi anda :</label>
-                          <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="Spesialist.model">
+                          <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="Spesialist.model" ng-disabled="isvalidating">
                                 <option ng-repeat="option in Spesialist.availableOptions" value="{{option.id}}">{{option.name}}</option>
                           </select>
                       </div>
                       <div class="form-check-inline">
                           <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input" name="agree" value="1">saya menyetujui segala syarat dan ketentuan yang berlaku di website ini
+                              <input type="checkbox" class="form-check-input" ng-disabled="isvalidating" name="agree" value="1" ng-model="accept_dokter">saya menyetujui segala syarat dan ketentuan yang berlaku di website ini
                           </label>
                       </div>
-                      <button type="submit" class="btn">daftar</button>
+                      <button type="submit" class="btn" ng-disabled="isvalidating">daftar</button>
                   </form>
               </div>
 

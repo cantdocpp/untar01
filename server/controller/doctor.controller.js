@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 module.exports = {
+	
   registerDoctor: (req, res) => {
     Doctor.create(req.body)
       .then(function(response) {

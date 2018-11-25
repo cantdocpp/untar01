@@ -5,10 +5,6 @@ var doctorController = require("../controller/doctor.controller");
 
 router.post("/register", patientController.registerPatient);
 router.get("/", patientController.getAllPatient);
-router.post(
-  "/login",
-  patientController.loginPatient,
-  doctorController.loginDoctor
-);
+router.post("/login",patientController.loginPatient);
 
 module.exports = router;
