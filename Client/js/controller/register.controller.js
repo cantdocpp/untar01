@@ -46,7 +46,6 @@ m.controller('registercontroller', function ($scope,$location,Api) {
       DATA.password=$scope.password_patien;
       DATA.gender=$scope.model.patient_gender;
       var promise=Api.register('patien',DATA);
-      
       promise.then(function(greeting) {
         $location.path('/login');
       }, function(response) {
@@ -65,7 +64,7 @@ m.controller('registercontroller', function ($scope,$location,Api) {
         DATA.name=$scope.name_dokter;
         DATA.email=$scope.email_dokter;
         DATA.password=$scope.password_dokter;
-        DATA.spesialist=$scope.Spesialist.model;
+        DATA.specialist=$scope.Spesialist.model;
       console.log(DATA);
       var promise=Api.register('doctor',DATA);
       promise.then(function(greeting) {
