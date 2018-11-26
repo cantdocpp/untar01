@@ -16,11 +16,9 @@ module.exports = {
   registerPatient: (req, res) => {
 	var info = req.body;
 	info.channel_id =random_id();
-
      Patient.create(info)
-      .then(response => {
-        console.log(req.body);
-        console.log(response);
+      .then(function(response) {
+        console.log('masuk setelah bikin database')
         res.status(200).json({
           message: "success creating patient data"
         });
@@ -34,7 +32,7 @@ module.exports = {
 	  
 	 function random_id(){
 		 return Math.floor(Math.random() * Math.floor(100000000));
-		 } 
+	  } 
   },
 
   getAllPatient: (req, res) => {

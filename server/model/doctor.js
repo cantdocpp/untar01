@@ -18,7 +18,7 @@ let doctorSchema = mongoose.Schema({
   },
   nomor_ijin: {
     type: String,
-    required: true
+    // required: true
   },
   channel_id: {
     type: String,

@@ -5,10 +5,31 @@ const bcrypt = require("bcryptjs");
 module.exports = {
 	
   registerDoctor: (req, res) => {
+    console.log('=======>>>>>>> masuk controller')
+    // console.log(req.body)
+    let randomNumber = Math.random() * 100;
+
+    // function makeid() {
+    //   console.log("masuk function make id")
+    //   var text = "";
+    //   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    //   for (var i = 0; i < 5; i++)
+    //     text += possible.charAt(
+    //       Math.floor(Math.random() * possible.length)
+    //     );
+
+    //   return text;
+    // }
+
+    // console.log(makeid())
+
+    // const hashedPassword = user.password;
+    // const doc_idrandom = randomNumber + "" + makeid();
+    req.body.channel_id = '12345';
     Doctor.create(req.body)
       .then(function(response) {
-        console.log(req.body);
-        console.log(response);
+        console.log('selesai masuk database')
         res.status(200).json({
           message: "success registering doctor"
         });
