@@ -1,6 +1,5 @@
 
-m.controller('PencarianController', ['$scope', '$http', '$rootScope', 'Auth', function ($scope, $http, $rootScope, Auth) {
-
+m.controller('PencarianController', ['$scope', '$http', '$rootScope', 'Auth','Api', function ($scope, $http, $rootScope, Auth,Api) {
 
 
 $scope.filter_select="harga";
@@ -13,7 +12,11 @@ $scope.find_data=function(){
 $scope.Pencarian=[{nama_dokter:"Dr. Bernard Mahfouz",spesialist:'Spesialis Jantung',harga_praktek:'Rp. 50000 - Rp. 10000',user_id:'123456789'}];
 
 $scope.goto_map=function(){
-alert('googl');
+    map.flyTo({
+        center: [
+            -74.50 + (Math.random() - 0.5) * 10,
+            40 + (Math.random() - 0.5) * 10]
+    });
 };
 
 
@@ -44,6 +47,17 @@ map.on('load', function () {
         }
     });
 });
+
+map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+    trackUserLocation: true
+}));
+
+
+
+
 
 // var map = new mapboxgl.Map({
 //     container: 'map_canvas',

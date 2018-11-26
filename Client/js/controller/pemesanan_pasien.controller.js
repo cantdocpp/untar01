@@ -1,7 +1,7 @@
 m.controller('PesanpasienController', ['$scope', '$http', '$rootScope', 'Auth','$location', function ($scope, $http, $rootScope, Auth,$location) {
 
 
-    $scope.get_name="jack";
+$scope.get_name="jack";
 
 console.log(Auth.encodeJWT(Auth.get_credentials_temp()));
 
