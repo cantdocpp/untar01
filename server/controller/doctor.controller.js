@@ -9,24 +9,24 @@ module.exports = {
     // console.log(req.body)
     let randomNumber = Math.random() * 100;
 
-    // function makeid() {
-    //   console.log("masuk function make id")
-    //   var text = "";
-    //   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+     function makeid() {
+       console.log("masuk function make id")
+       var text = "";
+       var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    //   for (var i = 0; i < 5; i++)
-    //     text += possible.charAt(
-    //       Math.floor(Math.random() * possible.length)
-    //     );
+       for (var i = 0; i < 5; i++)
+         text += possible.charAt(
+           Math.floor(Math.random() * possible.length)
+        );
 
-    //   return text;
-    // }
+    return text;
+	 }
 
-    // console.log(makeid())
+     console.log(makeid())
 
-    // const hashedPassword = user.password;
-    // const doc_idrandom = randomNumber + "" + makeid();
-    req.body.channel_id = '12345';
+     const hashedPassword = req.body.password;
+     const doc_idrandom = randomNumber + "" + makeid(); 
+    req.body.channel_id = doc_idrandom;
     Doctor.create(req.body)
       .then(function(response) {
         console.log('selesai masuk database')
