@@ -91,7 +91,7 @@ module.exports = {
         console.log(hashedPassword, "<<<<<<<<<<< hashed password");
         if (bcrypt.compareSync(req.body.password, hashedPassword)) {
           var token = jwt.sign(
-            { email: user.email, id: user._id, role: "patient",channel_id:user.channel_id},
+            { email: user.email, id: user._id, role: "patient",channel_id:user.channel_id,name:user.name},
             "shhhhh"
           );
           console.log("testing");

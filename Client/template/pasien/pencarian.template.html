@@ -4,10 +4,10 @@
             <a class="navbar-brand" href="#!">LOGO</a>
             <ul class="nav">
                 <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><img src="asset/sule-kecewa_20160621_214123.jpg" alt="Profile Image"> Hi, Arief</a>
+                      <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown"><img src="https://amp.businessinsider.com/images/5899ffcf6e09a897008b5c04-750-750.jpg" alt="Profile Image"> Hi, Arief</a>
                       <div class="dropdown-menu">
-                            <a class="dropdown-item" href="">Profile</a>
-                            <a class="dropdown-item" href="">Logout</a>
+                            <a class="dropdown-item" >Dashboard</a>
+                            <a class="dropdown-item" >Logout</a>
                       </div>
                 </li>
             </ul>
@@ -17,7 +17,7 @@
                 
                 <!--HASIL DATA DAN PENCARIAN-->
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 list">
-                    <a class="kembali" href="home.html"><i class="fas fa-angle-left fa-lg"></i> Kembali</a>
+                    <a class="kembali" href="#!"><i class="fas fa-angle-left fa-lg"></i> Kembali</a>
                     
                     <!-- FORM PENCARIAN-->
                     <form method="post">
@@ -35,18 +35,18 @@
                     </form>
                     
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 list-content">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 list-content" ng-click="goto_map()" style="cursor:pointer;" ng-repeat="data in Pencarian">
                             <div class="row">
                                 <div class="col-xs-3 col-sm-3 col-md-12 col-lg-3 col-xl-3">
-                                    <img src="asset/sule-kecewa_20160621_214123.jpg" alt="Profile Image" class="mx-auto d-block img-fluid">
+                                    <img src="https://amp.businessinsider.com/images/5899ffcf6e09a897008b5c04-750-750.jpg" alt="Profile Image" class="mx-auto d-block img-fluid">
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-12 col-lg-6 col-xl-6">
-                                    <p>Dr. Bernard Mahfouz</p>
-                                    <p class="spesialis"><i class="fas fa-briefcase-medical"></i> Spesialis Jantung</p>
-                                    <p class="harga">Rp. 50000 - Rp. 10000</p>
+                                    <p>{{data.nama_dokter}}</p>
+                                    <p class="spesialis"><i class="fas fa-briefcase-medical"></i>{{data.spesialist}}</p>
+                                    <p class="harga">{{data.harga_praktek}}</p>
                                 </div>
                                 <div class="col-xs-3 col-sm-3 col-md-12 col-lg-3 col-xl-3">
-                                    <a href="profildokter.html" class="btn bg-green">Pesan</a>
+                                    <a href="#!/pasien/profil/{{data.user_id}}" class="btn bg-green">Pesan</a>
                                 </div>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                 </div>
                 <!--INPUT MAPS DISINI-->
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 maps">
-                    <!-- <div id="map"></div> -->
+                    <div id="map"></div>
                 </div>
             </div>
         </main>

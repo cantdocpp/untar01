@@ -84,5 +84,32 @@ module.exports = {
         message: 'something bad happening'
       })
     })
+  },
+  
+  getprofileDoctor:(req, res) => {
+	  res.status(200).json({
+       info_dokter:{
+		          nama_dokter:'dokter',
+            spesialist_dokter:'dokter jantung',
+            alamat_dokter:'jln abc',
+            rating_dokter:7.5
+		   },
+		review:[{
+            nama_pasien: 'sule',
+            rating_pasien: 7.5,
+            review_pasien: 'a'
+        }]
+      })
+/*     Doctor.find({})
+    .then(function(res) {
+ 
+    })
+    .catch(function(err) {
+      res.status(400).json({
+	  
+        message: 'something bad happening'
+      })
+    }) */
   }
+  
 };

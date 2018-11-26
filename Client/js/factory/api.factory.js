@@ -3,10 +3,11 @@ m.factory('Api', function($http,$q){
     var factory={};
 
     var URL_LIST={
-        LOGIN_PATIEN:"http://localhost:3000/patients/login",
-        LOGIN_DOCTOR:"http://localhost:3000/doctor/login",
-        REGISTER_PATIEN:"http://localhost:3000/patients/register",
-        REGISTER_DOCTOR:"http://localhost:3000/doctor/register"
+        LOGIN_PATIEN:"https://apisehat.herokuapp.com/patients/login",
+        LOGIN_DOCTOR:"https://apisehat.herokuapp.com/doctor/login",
+        REGISTER_PATIEN:"https://apisehat.herokuapp.com/patients/register",
+        REGISTER_DOCTOR:"https://apisehat.herokuapp.com/doctor/register",
+        PROFILE_DOCTOR:"http://localhost:3000/doctor/profile"
     };
     
     factory.login=function(ROLE,DATA){
@@ -94,7 +95,34 @@ m.factory('Api', function($http,$q){
 
     factory.dalam_proses_pasien=function(){};
     factory.selesai_pasien=function(){};
-    factory.profil_dokter=function(){};
+    factory.profil_dokter=function(id){
+        var Url=URL_LIST.PROFILE_DOCTOR;
+        var deferred = $q.defer();
+       
+            setTimeout(function() {
+              deferred.notify();
+          
+
+              $http({
+              method: 'Get',
+              url :  Url+'/'+id,
+              headers: {
+                   'Content-Type': 'application/json',
+                   'Access-Control-Allow-Origin': '*'
+              }
+            }).then(function successCallback(response) {
+                //   console.table(response.status);
+        
+                  deferred.resolve(response);
+          
+                }, function errorCallback(response) {
+                  //response.data
+                  deferred.reject(response);
+                });
+              }, 200);
+          
+            return deferred.promise;
+    };
     factory.pencarian=function(){};
     factory.best_doctor=function(){};
     return factory;

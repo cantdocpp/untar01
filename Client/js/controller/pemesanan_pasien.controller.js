@@ -1,16 +1,14 @@
-m.controller('PesanpasienController', ['$scope', '$http', '$rootScope', 'Auth', function ($scope, $http, $rootScope, Auth) {
+m.controller('PesanpasienController', ['$scope', '$http', '$rootScope', 'Auth','$location', function ($scope, $http, $rootScope, Auth,$location) {
 
 
+    $scope.get_name="jack";
 
+console.log(Auth.encodeJWT(Auth.get_credentials_temp()));
 
-    $scope.$on('getname_temp', function (event, args) {
-        $scope.get_name = args;
-    });
-
-    $scope.$on('getname_perm', function (event, args) {
-        change(args);
-    });
-
+    $scope.logout=function(){
+        Auth.logout();
+        $location.path('/');
+    }
 
     $scope.ongoing = [];
     $scope.history = [{
@@ -21,14 +19,14 @@ m.controller('PesanpasienController', ['$scope', '$http', '$rootScope', 'Auth', 
         alamat_pasien:'jln.abc',
         review_pasien:'a',
         resepn_pasien:'a',
-        rekomend_dokter:'a',
+        rekomend_dokter:'aaa',
         penyakit_pasien:'a'
     },{
-        nama: 'abc',
-        spesialist: 'dokterginjal',
+        nama: 'asssdqw',
+        spesialist: 'Dokter Jantung',
         nomor_telpdokter: '08123123',
-        nama_pasien:'sule',
-        alamat_pasien:'jln.abc',
+        nama_pasien:'sllsse',
+        alamat_pasien:'jln.qwdqwd',
         review_pasien:'a',
         resepn_pasien:'a',
         rekomend_dokter:'a',
@@ -52,9 +50,6 @@ m.controller('PesanpasienController', ['$scope', '$http', '$rootScope', 'Auth', 
         return $scope.tab === tabNum;
     };
 
-    function change(args) {
 
-        $scope.get_name = Auth.encodeJWT(args);
-    }
 
 }]);

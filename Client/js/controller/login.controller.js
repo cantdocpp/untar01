@@ -26,7 +26,7 @@ $scope.Login=function(){
           {
            Auth.store_credential_long_term(greeting.data.token);
           }else{
-            Auth.store_credential_temp(greeting.token);
+            Auth.store_credential_temp(greeting.data.token);
           }
            $location.path('/');
 
