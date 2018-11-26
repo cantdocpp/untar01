@@ -46,7 +46,6 @@ m.controller('registercontroller', function ($scope,$location,Api) {
       DATA.password=$scope.password_patien;
       DATA.gender=$scope.model.patient_gender;
       var promise=Api.register('patien',DATA);
-      
       promise.then(function(greeting) {
         $location.path('/login');
       }, function(response) {
