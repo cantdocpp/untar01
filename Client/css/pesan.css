@@ -1,0 +1,56 @@
+body {
+  font-family: "Lato", "Helvetica", sans-serif;
+  margin: 0;
+  width: 100%;
+  background-color: #EBEBE0 !important;
+  text-transform: capitalize; }
+  body .bg-green {
+    background-color: #00B894 !important;
+    color: #FFFFFF; }
+  body .bg-blue {
+    background-color: #00CEC9 !important; }
+  body .navbar {
+    display: block; }
+    body .navbar .nav {
+      float: right; }
+    body .navbar .navbar-brand {
+      color: #FFFFFF;
+      margin: 2vh 3vw; }
+    body .navbar #navbardrop {
+      color: #FFFFFF; }
+    body .navbar img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%; }
+  body form {
+    margin: 20vh auto 5vh auto;
+    width: 50%;
+    background-color: #FFFFFF;
+    padding: 5vh 5vw; }
+    body form .row img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: solid 3px #EBEBE0; }
+    body form .row .spesialisasi {
+      line-height: 1px; }
+    body form .btn {
+      text-transform: capitalize;
+      width: 100%; }
+  body .modal-body {
+    padding: 5vh 5vw; }
+    body .modal-body .row .profile img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: solid 3px #EBEBE0; }
+    body .modal-body .row .detail {
+      margin: 3vh 0vw; }
+    body .modal-body .btn {
+      width: 100%; }
+
+@media only screen and (max-width: 576px) {
+  body form {
+    width: 90%; } }
+
+/*# sourceMappingURL=pesan.css.map */

@@ -8,7 +8,7 @@ m.run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth)
         $rootScope.$broadcast('currentlocation', $location.$$path);
          console.log($location.$$path);   
         
-        var restrict = ['/dokter/pemesanan', '/pasien/pemesanan','/pasien/pencarian','/pasien/profil'];
+        var restrict = ['/dokter/pemesanan', '/pasien/pemesanan','/pasien/pencarian','/pasien/profil','/pasien/pesan/'];
         var find_restict=0;
         for (var t = 0; t < restrict.length; t++) {
 

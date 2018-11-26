@@ -1,8 +1,14 @@
-m.controller('PesandokterController', ['$scope', '$http', '$rootScope', 'Auth','$pusher', function ($scope, $http, $rootScope, Auth,$pusher) {
+m.controller('PesandokterController', ['$scope', '$http', '$rootScope', 'Auth','$pusher','$location', function ($scope, $http, $rootScope, Auth,$pusher,$location) {
 
     var modal_position = 0;
     var modal_position_history=0;
 
+
+
+    $scope.logout=function(){
+        Auth.logout();
+        $location.path('/');
+    }
     var client = new Pusher(
         '6c6e7e68865fa076b342', {
             cluster: 'ap1',

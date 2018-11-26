@@ -9,7 +9,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><img src="asset/sule-kecewa_20160621_214123.jpg"
                     alt="Profile Image"> Hi, Arief</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="index.html">Logout</a>
+                <a class="dropdown-item" ng-click="logout()">Logout</a>
             </div>
         </li>
     </ul>
@@ -46,13 +46,13 @@
             <p class="text-center">Hi Arief</p>
             <hr>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#pemesanan"><i class="fas fa-notes-medical fa-lg"></i>
+                <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#!/"><i class="fas fa-notes-medical fa-lg"></i>
                         Pemesanan</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#profil"><i class="fas fa-user-md fa-lg"></i>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill"  ><i class="fas fa-user-md fa-lg"></i>
                         Profil</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#setting"><i class="fas fa-cog fa-lg"></i>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" ><i class="fas fa-cog fa-lg"></i>
                         Pengaturan</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-sign-out-alt fa-lg"></i>
+                <li class="nav-item"><a class="nav-link" ng-click="logout()"><i class="fas fa-sign-out-alt fa-lg"></i>
                         Logout</a></li>
             </ul>
         </div>

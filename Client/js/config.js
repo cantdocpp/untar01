@@ -32,6 +32,16 @@ m.config(function($routeProvider) {
               }
         }
     })
+    .when("/pasien/pesan/:userid",{
+        templateUrl:'./template/pasien/pesan.template.html',
+        resolve:{
+             user_id:function($route) {
+                return $route.current.params.userid;
+              }
+        }
+    })
+
+    
     .when("/dokter/pemesanan",{
         templateUrl:'./template/dokter/pemesanan.template.html',
         controller:"PesandokterController"

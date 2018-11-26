@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="css/pesan.css">
+<nav class="navbar navbar-expand-sm fixed-top bg-green">
+    <a class="navbar-brand" href="dashboardpasien.html">LOGO</a>
+    <ul class="nav">
+        <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><img src="asset/sule-kecewa_20160621_214123.jpg" class="img-fluid" alt="Profile Image"> Hi, Arief</a>
+              <div class="dropdown-menu">
+                    <a class="dropdown-item" href="dashboardpasien.html">Profile</a>
+                    <a class="dropdown-item" href="index.html">Logout</a>
+              </div>
+        </li>
+    </ul>
+</nav>
+<form method="post">
+    <div class="row justify-content-center">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <img src="asset/sule-kecewa_20160621_214123.jpg">
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <p>Dr. Bernard Mahfuz</p>
+            <p class="spesialisasi"><i class="fas fa-briefcase-medical"></i> spesialis jantung</p>
+        </div>
+    </div>
+    <hr>
+    <div class="form-group">
+        <label>Masukkan Tanggal Pemesanan :</label>
+        <input type="date" class="form-control" name="tanggal" required> 
+    </div>
+    <div class="form-group">
+        <label>Masukkan Jam Pemesanan :</label>
+        <input type="time" class="form-control" name="jam" required>   
+    </div>
+    <div class="form-group">
+        <label>Masukkan Keluhan Penyakit :</label>
+        <textarea class="form-control" name="keluhan" placeholder="Contoh: Pusing, Mual, Batuk, Sesak Nafas, Susah buang air besar" required></textarea>
+    </div>
+    <button type="button" class="btn bg-green" data-toggle="modal" data-target="#myModal">konfirmasi pemesanan</button>
+</form>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p class="text-center">Konfirmasi Pemesanan</p>
+                <hr>
+                <div class="row justify-content-center">
+                    <div class="profile col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    
+                        <img src="asset/sule-kecewa_20160621_214123.jpg" alt="Doctor Image" class="img-fluid mx-auto d-block">
+                        <p class="text-center">Dr. bernard mahfouz</p>
+                    </div>
+                    <div class="detail col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <p>Tanggal pemesanan :</p>
+                                <p class="font-weight-bold">25/11/2018</p>
+                                <p>Jam pemesanan :</p>
+                                <p class="font-weight-bold">11:10</p>
+                                <p>Keluhan Kamu :</p>
+                                <p class="font-weight-bold"> Pusing, Mual, Batuk, Sesak Nafas, Susah buang air besar</p>
+                            </div>
+                            <div class="col-6">
+                                <p>Harga :</p>
+                                <p class="font-weight-bold">Rp. 10000</p>
+                            </div>     
+                        </div>
+                    </div>
+                </div>
+                <a href="dashboardpasien.html" class="btn bg-green">Pesan Dokter</a>
+            </div>
+        </div>
+    </div>
+</div>
