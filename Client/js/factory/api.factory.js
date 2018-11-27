@@ -4,12 +4,12 @@ m.factory('Api', function($http,$q){
 
     var URL_LIST={
         LOGIN_PATIEN:"https://apisehat.herokuapp.com/patients/login",
-        LOGIN_DOCTOR:"https://apisehat.herokuapp.com/ doctor/login",
-        REGISTER_PATIEN:"https://apisehat.herokuapp.com/ patients/register",
-        REGISTER_DOCTOR:"https://apisehat.herokuapp.com/ doctor/register",
-        PROFILE_DOCTOR:"https://apisehat.herokuapp.com/ doctor/profile",
-        UPDATE_DOCTOR_GET:"https://apisehat.herokuapp.com/ doctor/setting",
-        UPDATE_DOCTOR_POST:"https://apisehat.herokuapp.com/ doctor/setting",
+        LOGIN_DOCTOR:"https://apisehat.herokuapp.com/doctor/login",
+        REGISTER_PATIEN:"https://apisehat.herokuapp.com/patients/register",
+        REGISTER_DOCTOR:"https://apisehat.herokuapp.com/doctor/register",
+        PROFILE_DOCTOR:"https://apisehat.herokuapp.com/doctor/profile",
+        // UPDATE_DOCTOR_GET:"https://apisehat.herokuapp.com/doctor/setting",
+        // UPDATE_DOCTOR_POST:"https://apisehat.herokuapp.com/doctor/setting",
     };
     
     factory.login=function(ROLE,DATA){
