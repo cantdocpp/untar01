@@ -53,8 +53,6 @@ let doctorSchema = mongoose.Schema({
   pendidikan: {
     type: [
       {
-        from: Date,
-        to: Date,
         school: String
       }
     ]

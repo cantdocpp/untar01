@@ -3,11 +3,13 @@ m.factory('Api', function($http,$q){
     var factory={};
 
     var URL_LIST={
-        LOGIN_PATIEN:"http://apisehat.herokuapp.com/patients/login",
-        LOGIN_DOCTOR:"http://apisehat.herokuapp.com/doctor/login",
+        LOGIN_PATIEN:"http://localhost:3000/patients/login",
+        LOGIN_DOCTOR:"http://localhost:3000/doctor/login",
         REGISTER_PATIEN:"http://localhost:3000/patients/register",
         REGISTER_DOCTOR:"http://localhost:3000/doctor/register",
-        PROFILE_DOCTOR:"http://localhost:3000/doctor/profile"
+        PROFILE_DOCTOR:"http://localhost:3000/doctor/profile",
+        UPDATE_DOCTOR_GET:"http://localhost:3000/doctor/setting",
+        UPDATE_DOCTOR_POST:"http://localhost:3000/doctor/setting",
     };
     
     factory.login=function(ROLE,DATA){
@@ -125,5 +127,64 @@ m.factory('Api', function($http,$q){
     };
     factory.pencarian=function(){};
     factory.best_doctor=function(){};
+
+    factory.update_doctor=function(id,DATA){
+      var Url=URL_LIST.UPDATE_DOCTOR_POST;
+      var deferred = $q.defer();
+     
+          setTimeout(function() {
+            deferred.notify();
+        
+
+            $http({
+            method: 'Post',
+            url :  Url+'/'+id,
+            headers: {
+                 'Content-Type': 'application/json',
+                 'Access-Control-Allow-Origin': '*'
+            }
+          }).then(function successCallback(response) {
+              //   console.table(response.status);
+      
+                deferred.resolve(response);
+        
+              }, function errorCallback(response) {
+                //response.data
+                deferred.reject(response);
+              });
+            }, 200);
+        
+          return deferred.promise;
+    };
+    factory.get_for_setting=function(id){
+      var Url=URL_LIST.UPDATE_DOCTOR_GET;
+      var deferred = $q.defer();
+     
+          setTimeout(function() {
+            deferred.notify();
+        
+
+            $http({
+            method: 'Post',
+            url :  Url+'/'+id,
+            headers: {
+                 'Content-Type': 'application/json',
+                 'Access-Control-Allow-Origin': '*'
+            }
+          }).then(function successCallback(response) {
+              //   console.table(response.status);
+      
+                deferred.resolve(response);
+        
+              }, function errorCallback(response) {
+                //response.data
+                deferred.reject(response);
+              });
+            }, 200);
+        
+          return deferred.promise;
+    };
+
+
     return factory;
     });

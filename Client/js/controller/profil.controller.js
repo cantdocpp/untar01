@@ -1,7 +1,7 @@
 m.controller('profilcontroller', function ($scope, $http, user_id,Api,$location) {
 
     var promise=Api.profil_dokter(user_id);
-
+    $scope.index_params=user_id;
     promise.then(function(greeting) {
 
     

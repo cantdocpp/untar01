@@ -40,6 +40,10 @@ m.config(function($routeProvider) {
               }
         }
     })
+    .when("/dokter/pengaturan",{
+        templateUrl:'./template/dokter/setting.template.html',
+        controller:'SettingdoctorController'
+    })
 
     
     .when("/dokter/pemesanan",{

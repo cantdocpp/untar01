@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="css/dashboarddokter.css">
+
+
+<!-- NAVIGASI-->
+<nav class="navbar navbar-expand-sm fixed-top bg-green">
+    <a class="navbar-brand" href="!#">LOGO</a>
+    <ul class="nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><img src="https://amp.businessinsider.com/images/5899ffcf6e09a897008b5c04-750-750.jpg"
+                    alt="Profile Image"> Hi, DOKTER</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" ng-click="logout()">Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<main class="container-fluid">
+    <div class="row">
+
+
+
+        <!--SIDEBAR-->
+        <div class="aside  bg-white col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+            <img src="https://amp.businessinsider.com/images/5899ffcf6e09a897008b5c04-750-750.jpg" alt="User Image" class="img-fluid mx-auto d-block">
+            <p class="text-center">Hi DOKTER</p>
+            <hr>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link " data-toggle="pill" href="#!/"><i class="fas fa-notes-medical fa-lg"></i>
+                        Pemesanan</a></li>
+                <li class="nav-item"><a class="nav-link active" data-toggle="pill" ><i class="fas fa-cog fa-lg"></i>
+                        Pengaturan</a></li>
+                <li class="nav-item"><a class="nav-link" ng-click="logout()"><i class="fas fa-sign-out-alt fa-lg"></i>
+                        Logout</a></li>
+            </ul>
+        </div>
+
+        <!--KONTEN UTAMA-->
+        <div class="main-content bg-white col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 container">
+            <div class="row">
+            <div class="input-group">
+                <p>Nama</p>
+                <input type="text" class="form-control"  aria-describedby="basic-addon1" ng-model="name">
+            </div>
+            <div class="input-group">
+                <p>Email</p>
+                <input type="text" class="form-control"  aria-describedby="basic-addon1" ng-model="email">
+            </div>
+            <div class="input-group">
+                <p>Password</p>
+                <input type="password" class="form-control"  aria-describedby="basic-addon1" ng-model="password">
+            </div>
+            <hr>
+            <div class="input-group">
+                <p>Nomor Ijin</p>
+                <input type="text" class="form-control"  aria-describedby="basic-addon1" ng-model="nomor_ijin">
+            </div>
+
+            <div class="input-group">
+                <p>kota</p>
+                <input type="text" class="form-control"  aria-describedby="basic-addon1" ng-model="kota">
+            </div>
+            <div class="input-group">
+                <p>provinsi</p>
+                <input type="text" class="form-control"  aria-describedby="basic-addon1" ng-model="provinsi">
+            </div>
+            <div class="input-group">
+                <p>kecamatan</p>
+                <input type="text" class="form-control"  aria-describedby="basic-addon1" ng-model="kecamatan">
+            </div>
+            <div class="input-group">
+                <p>Posisi</p>
+                <button type="button"  ng-click="get_position()">Posisi saya</button>
+                {{posisi_saat_ini}}
+            </div>
+
+            <div class="detail col-12">
+                <button type="button" class="btn bg-green" ng-click="update()">Update</button>
+            </div>
+        </div>
+    </div>
+</main>
