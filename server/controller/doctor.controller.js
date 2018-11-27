@@ -3,33 +3,31 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 module.exports = {
-	
   registerDoctor: (req, res) => {
-    console.log('=======>>>>>>> masuk controller')
+    console.log("=======>>>>>>> masuk controller");
     // console.log(req.body)
     let randomNumber = Math.random() * 100;
 
-     function makeid() {
-       console.log("masuk function make id")
-       var text = "";
-       var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    function makeid() {
+      console.log("masuk function make id");
+      var text = "";
+      var possible =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-       for (var i = 0; i < 5; i++)
-         text += possible.charAt(
-           Math.floor(Math.random() * possible.length)
-        );
+      for (var i = 0; i < 5; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
 
-    return text;
-	 }
+      return text;
+    }
 
-     console.log(makeid())
+    console.log(makeid());
 
-     const hashedPassword = req.body.password;
-     const doc_idrandom = randomNumber + "" + makeid(); 
+    const hashedPassword = req.body.password;
+    const doc_idrandom = randomNumber + "" + makeid();
     req.body.channel_id = doc_idrandom;
     Doctor.create(req.body)
       .then(function(response) {
-        console.log('selesai masuk database')
+        console.log("selesai masuk database");
         res.status(200).json({
           message: "success registering doctor"
         });
@@ -55,7 +53,8 @@ module.exports = {
 
         function makeid() {
           var text = "";
-          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+          var possible =
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
           for (var i = 0; i < 5; i++)
             text += possible.charAt(
@@ -95,33 +94,35 @@ module.exports = {
 
   getAllDoctor: (req, res) => {
     Doctor.find({})
-    .then(function(res) {
-      res.status(200).json({
-        data: res
+      .then(function(res) {
+        res.status(200).json({
+          data: res
+        });
       })
-    })
-    .catch(function(err) {
-      res.status(400).json({
-        message: 'something bad happening'
-      })
-    })
+      .catch(function(err) {
+        res.status(400).json({
+          message: "something bad happening"
+        });
+      });
   },
-  
-  getprofileDoctor:(req, res) => {
-	  res.status(200).json({
-       info_dokter:{
-		          nama_dokter:'dokter',
-            spesialist_dokter:'dokter jantung',
-            alamat_dokter:'jln abc',
-            rating_dokter:7.5
-		   },
-		review:[{
-            nama_pasien: 'sule',
-            rating_pasien: 7.5,
-            review_pasien: 'a'
-        }]
-      })
-/*     Doctor.find({})
+
+  getprofileDoctor: (req, res) => {
+    res.status(200).json({
+      info_dokter: {
+        nama_dokter: "dokter",
+        spesialist_dokter: "dokter jantung",
+        alamat_dokter: "jln abc",
+        rating_dokter: 7.5
+      },
+      review: [
+        {
+          nama_pasien: "sule",
+          rating_pasien: 7.5,
+          review_pasien: "a"
+        }
+      ]
+    });
+    /*     Doctor.find({})
     .then(function(res) {
  
     })
@@ -131,6 +132,47 @@ module.exports = {
         message: 'something bad happening'
       })
     }) */
+  },
+
+  getDoctorById: (req, res) => {
+    Doctor.findOne({ _id: req.params.id })
+      .then(function(res) {
+        res.status(200).json({
+          data: res
+        });
+      })
+      .catch(function(err) {
+        res.status(500).json({
+          message: "something wrong is happening at the server"
+        });
+      });
+  },
+
+  getDoctorBySpeciality: (req, res) => {
+    Doctor.find({ specialist: req.params.specialist })
+      .then(function(res) {
+        res.status(200).json({
+          data: res
+        });
+      })
+      .catch(function(err) {
+        res.status(500).json({
+          message: err
+        });
+      });
+  },
+
+  editDoctorById: (req, res) => {
+    Doctor.find({ id: req.params.id }, req.body)
+      .then(function(res) {
+        res.status(200).json({
+          message: "edit data success"
+        });
+      })
+      .catch(function(err) {
+        res.status(500).json({
+          message: "something wrong is happening at the server"
+        });
+      });
   }
-  
 };
