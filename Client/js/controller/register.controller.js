@@ -11,15 +11,13 @@ m.controller('registercontroller', function ($scope,$location,Api) {
 
   $scope.model = {};
   $scope.model.patient_gender = 'current';
-
-  $scope.Spesialist = {
-    model: null,
-    availableOptions: [
-      {id: '1', name: 'Dokter Umum'},
-      {id: '2', name: 'Dokter Mata'},
-      {id: '3', name: 'Dokter Jantung'}
-    ]
-   };
+  $scope.listspesialis = [{
+    name: 'Dokter Umum',
+    value: 'UMUM'
+   }, {
+      name: 'Dokter Gigi',
+      value: 'GIGI'
+}];
   
 
   $scope.tab = 1;
@@ -59,13 +57,13 @@ m.controller('registercontroller', function ($scope,$location,Api) {
       
     } else if ($scope.tab == 2 && $scope.accept_dokter) {
       
-      if($scope.Spesialist.model !== null){
+     
         var DATA={};
         DATA.name=$scope.name_dokter;
         DATA.email=$scope.email_dokter;
         DATA.password=$scope.password_dokter;
-        DATA.specialist=$scope.Spesialist.model;
-      console.log(DATA);
+        DATA.specialist=$scope.filter_spesialis.value;
+        console.log(DATA);
       var promise=Api.register('doctor',DATA);
       promise.then(function(greeting) {
         $location.path('/login');
@@ -75,7 +73,7 @@ m.controller('registercontroller', function ($scope,$location,Api) {
       }, function(update) {
           $scope.isvalidating=true;
       });
-      }
+      
 
     }else{
       alert('Must accept condition');

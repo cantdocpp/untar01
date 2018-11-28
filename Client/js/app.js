@@ -14,11 +14,14 @@ m.run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth)
 
             if ($location.$$path.match(restrict[t])) {
                 //console.log('DENY');
-                if (Auth.get_credentials_temp()) {
-                    
+                if (Auth.get_credentials_temp() != null) {
+                   
                     $rootScope.$broadcast('getname_temp',Auth.get_credentials_temp());
                     find_restict++;
-                } else if (Auth.get_credentials_perm()) {
+                } else if (Auth.get_credentials_perm() != null) {
+                    
+                    console.log("Permanet"+Auth.get_credentials_temp());
+
                     $rootScope.$broadcast('getname_perm',Auth.get_credentials_perm());
                     find_restict++;
                 } else {

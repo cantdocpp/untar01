@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="./css/dashboardpasien.css">
+
+<nav class="navbar navbar-expand-sm fixed-top bg-green">
+    <a class="navbar-brand" href="home.html">LOGO</a>
+    <ul class="nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown"><img src="asset/sule-kecewa_20160621_214123.jpg"
+                    alt="Profile Image"> Hi,{{get_name}}</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="">Dashboard</a>
+                <a class="dropdown-item" ng-click="logout()">Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<main class="container-fluid">
+    <div class="row">
+        <!--SIDEBAR-->
+        <div class="aside  bg-white col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+            <img src="asset/sule-kecewa_20160621_214123.jpg" alt="User Image" class="img-fluid mx-auto d-block">
+            <p class="text-center">Hi {{get_name}}</p>
+            <hr>
+            <ul class="nav nav-pills">
+
+                <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#!/pasien/pemesanan"><i
+                            class="fas fa-notes-medical fa-lg"></i>Pemesanan</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#!/pasien/pencarian"><i
+                            class="fas fa-user-md fa-lg"></i>Cari Dokter</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" ><i class="fas fa-cog fa-lg"></i>
+                        Pengaturan</a></li>
+                <li class="nav-item"><a class="nav-link"  ng-click="logout()"><i class="fas fa-sign-out-alt fa-lg"></i>
+                        Logout</a></li>
+            </ul>
+        </div>
+
+        <h1>Hello</h1>
+
+    </div>
+</main>

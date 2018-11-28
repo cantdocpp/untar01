@@ -81,9 +81,10 @@
                       </div>
                       <div class="form-group">
                           <label>Masukkan spesialisasi anda :</label>
-                          <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="Spesialist.model" ng-disabled="isvalidating">
-                                <option ng-repeat="option in Spesialist.availableOptions" value="{{option.id}}">{{option.name}}</option>
-                          </select>
+                          <select name="filter" class="form-control" ng-init="filter_spesialis = listspesialis[0]" 
+                          ng-model="filter_spesialis" 
+                          ng-options="listspesialis.name  for listspesialis in listspesialis"
+                          ></select>
                       </div>
                       <div class="form-check-inline">
                           <label class="form-check-label">
@@ -95,7 +96,7 @@
               </div>
 
               <hr>
-              <p class="haveaccount">sudah punya akun ? Yuk <a href="!#">login</a></p>
+              <p class="haveaccount">sudah punya akun ? Yuk <a href="#!/login">login</a></p>
           </div>
       </div>
        </wrapper>

@@ -32,6 +32,7 @@ m.config(function($routeProvider) {
               }
         }
     })
+    //Pasien
     .when("/pasien/pesan/:userid",{
         templateUrl:'./template/pasien/pesan.template.html',
         controller:"BookingController",
@@ -41,6 +42,17 @@ m.config(function($routeProvider) {
               }
         }
     })
+    .when("/pasien/Pengaturan",{
+        templateUrl:'./template/pasien/pengaturan',
+        controller:"BookingController",
+        resolve:{
+             user_id:function($route) {
+                return $route.current.params.userid;
+              }
+        }
+    })
+
+    //Dokter
     .when("/dokter/pengaturan",{
         templateUrl:'./template/dokter/setting.template.html',
         controller:'SettingdoctorController'

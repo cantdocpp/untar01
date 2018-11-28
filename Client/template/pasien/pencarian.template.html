@@ -6,7 +6,7 @@
                 <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown"><img src="https://amp.businessinsider.com/images/5899ffcf6e09a897008b5c04-750-750.jpg" alt="Profile Image"> Hi, Arief</a>
                       <div class="dropdown-menu">
-                            <a class="dropdown-item" >Dashboard</a>
+                            <a class="dropdown-item" href="#!">Dashboard</a>
                             <a class="dropdown-item" >Logout</a>
                       </div>
                 </li>
@@ -22,26 +22,32 @@
                     <!-- FORM PENCARIAN-->
                     <form method="post">
                         <div class="form-group">
-                            <label>Cari :</label>
-                            <input type="text" class="form-control" placeholder="Cari..." name="cari" ng-model="filter_input" ng-change="find_data()">
+                            <label>Kota :</label>
+
+                            <select name="filter" class="form-control" ng-init="filter_kota = listkota[0]" 
+                                    ng-model="filter_kota" 
+                                    ng-options="listkota.name  for listkota in listkota"
+                            ></select>
+                           
+
                         </div>
                         <div class="form-group">
-                            <label>Filter Menurut :</label>
-                            <select name="filter" class="form-control" ng-model="filter_select" ng-change="find_data()">
-                                <option value="harga">Harga</option>
-                                <option value="spesialist">spesialist</option>
-                            </select>
+                            <label>Spesialis :</label>
+                            <select name="filter" class="form-control" ng-init="filter_spesialis = listspesialis[0]" 
+                            ng-model="filter_spesialis" 
+                            ng-options="listspesialis.name  for listspesialis in listspesialis"
+                    ></select>
                         </div>
                     </form>
                     
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 list-content" ng-click="goto_map()" style="cursor:pointer;" ng-repeat="data in Pencarian">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 list-content"  style="cursor:pointer;" ng-repeat="data in Pencarian">
                             <div class="row">
                                 <div class="col-xs-3 col-sm-3 col-md-12 col-lg-3 col-xl-3">
                                     <img src="https://amp.businessinsider.com/images/5899ffcf6e09a897008b5c04-750-750.jpg" alt="Profile Image" class="mx-auto d-block img-fluid">
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-12 col-lg-6 col-xl-6">
-                                    <p>{{data.nama_dokter}}</p>
+                                    <p ng-click="goto_map()">{{data.nama_dokter}}</p>
                                     <p class="spesialis"><i class="fas fa-briefcase-medical"></i>{{data.spesialist}}</p>
                                     <p class="harga">{{data.harga_praktek}}</p>
                                 </div>

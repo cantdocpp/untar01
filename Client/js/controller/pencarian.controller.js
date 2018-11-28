@@ -2,14 +2,36 @@
 m.controller('PencarianController', ['$scope', '$http', '$rootScope', 'Auth','Api', function ($scope, $http, $rootScope, Auth,Api) {
 
 
-$scope.filter_select="harga";
+
+
 
 $scope.find_data=function(){
+    // jika geolocation jump dan ganti filter
+    //hover icon info 
     console.log($scope.filter_select);
+    // kalau ganti kota  jump
     console.log($scope.filter_input);
+    // $scope.listkota.value
+    // $scope.listspesialis.value
 }
 
 $scope.Pencarian=[{nama_dokter:"Dr. Bernard Mahfouz",spesialist:'Spesialis Jantung',harga_praktek:'Rp. 50000 - Rp. 10000',user_id:'123456789'}];
+$scope.listkota = [{
+    name: 'Jakarta',
+    value: 'JKT'
+   }, {
+      name: 'Bandung',
+      value: 'BNDG'
+   }];
+$scope.listspesialis = [{
+    name: 'Dokter Umum',
+    value: 'UMUM'
+   }, {
+      name: 'Dokter Gigi',
+      value: 'GIGI'
+}];
+
+
 
 $scope.goto_map=function(){
     map.flyTo({
@@ -34,18 +56,29 @@ var map = new mapboxgl.Map({
 var url = 'http://geojsonapp.herokuapp.com/';
 map.on('load', function () {
     window.setInterval(function() {
-        map.getSource('drone').setData(url);
+        map.getSource('doctor').setData(url);
     }, 2000);
 
-    map.addSource('drone', { type: 'geojson', data: url });
+    map.addSource('doctor', { type: 'geojson', data: url });
+
     map.addLayer({
         "id": "drone",
         "type": "symbol",
-        "source": "drone",
+        "source": "doctor",
         "layout": {
             "icon-image": "rocket-15"
         }
     });
+
+
+    map.on('mouseenter','map',function(e) {
+        alert('Mouse Enter');
+    });
+
+    map.on('mouseleave','map',function() {
+        alert('Mouse Leave');
+    });
+
 });
 
 map.addControl(new mapboxgl.GeolocateControl({

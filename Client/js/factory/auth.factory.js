@@ -21,11 +21,14 @@ factory.get_credentials_temp=function(){
      return null;
 };
 factory.get_credentials_perm=function(){
+    
   if (localStorage.getItem("token") !== null) {
-    return localStorage.getItem("token");
+      console.log(localStorage.getItem("token"))
+     return localStorage.getItem("token");
   }else {
     return null;
   }
+
 };
 factory.store_credential_temp=function(tokenvalue){
    var d = new Date();
@@ -42,6 +45,7 @@ factory.store_credential_long_term=function(token){
 };
 
 factory.encodeJWT=function(token){
+    console.log(token)
               var base64Url = token.split('.')[1];
               var base64 = base64Url.replace('-', '+').replace('_', '/');
               return JSON.parse(window.atob(base64));
