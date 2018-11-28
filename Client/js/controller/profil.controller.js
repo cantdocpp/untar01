@@ -15,14 +15,18 @@ m.controller('profilcontroller', function ($scope, $http, user_id,Api,$location)
         $scope.alamat_dokter=info_dokter.alamat_dokter;
         
       }, function(reason) {
-         
          $location.path('/');
       }, function(update) {
         // alert('Loading');
       });
 
 
-
+      /*Prototype*/
+      $scope.info={
+        education:['Universitas Tarumanegara','Harvard Busines'],
+        service:['Cek Jantung','Cek Ginjal'],
+        schedule:[{jam:'10:00-20:00',hari:'Senin'}]
+      };
 
 
 

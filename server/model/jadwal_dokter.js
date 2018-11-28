@@ -1,3 +1,5 @@
+const Patient = require("../model/patient.js");
+const Doctor = require("../model/doctor.js");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
@@ -14,14 +16,10 @@ let jadwalDokter = mongoose.Schema({
     }
   ],
   tanggal_pesan: {
-    type: Date,
-    required: true
-  },
-  nama_dokter: {
     type: String,
     required: true
   },
-  saran_dokter: {
+  nama_dokter: {
     type: String,
     required: true
   },
@@ -41,6 +39,10 @@ let jadwalDokter = mongoose.Schema({
   },
   status: {
     type: String,
+    required: true
+  },
+  harga: {
+    type: Number,
     required: true
   },
   createdAt: { type: Date, default: Date.now },

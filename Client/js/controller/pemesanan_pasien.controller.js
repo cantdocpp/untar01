@@ -1,11 +1,16 @@
 m.controller('PesanpasienController', ['$scope', '$http', '$rootScope', 'Auth','$location', function ($scope, $http, $rootScope, Auth,$location) {
 
-    $scope.get_name="jack";
-    console.log(Auth.encodeJWT(Auth.get_credentials_temp()));
+    $scope.get_name=(Auth.encodeJWT(Auth.get_credentials_temp())).name;
+
+    
+
+
+
         $scope.logout=function(){
             Auth.logout();
             $location.path('/');
         }
+
         $scope.ongoing = [];
         $scope.history = [{
             nama: 'abc',

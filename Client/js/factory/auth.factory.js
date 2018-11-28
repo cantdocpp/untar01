@@ -45,15 +45,16 @@ factory.store_credential_long_term=function(token){
 };
 
 factory.encodeJWT=function(token){
-    console.log(token)
+   
               var base64Url = token.split('.')[1];
               var base64 = base64Url.replace('-', '+').replace('_', '/');
               return JSON.parse(window.atob(base64));
 }
 
 factory.logout=function(){
+    alert('logout');
     var name="token";
-    document.cookie = name+'=; Max-Age=-99999999;';
+    document.cookie = name+'=; Max-Age=-99999999;'+ "path=/";
     localStorage.removeItem("token")
 }
 

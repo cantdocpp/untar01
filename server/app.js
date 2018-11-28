@@ -6,7 +6,8 @@ const logger = require("morgan");
 const cors = require("cors");
 const mongoose = require("mongoose");
 mongoose.connect(
-  "mongodb://philip12:mongoose12@ds041178.mlab.com:41178/sehat",
+  // "mongodb://philip12:mongoose12@ds041178.mlab.com:41178/sehat",
+  "mongodb://lankom:a123456789@ds119304.mlab.com:19304/healthcare",
   err => {
     if (err) {
       console.log(err, "err");

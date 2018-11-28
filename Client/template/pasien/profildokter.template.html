@@ -2,7 +2,7 @@
 
 
 <nav class="navbar navbar-expand-sm fixed-top bg-green">
-        <a class="navbar-brand" href="index.html">LOGO</a>
+        <a class="navbar-brand" href="#!">LOGO</a>
         <ul class="nav">
             <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown"><img src="https://amp.businessinsider.com/images/5899ffcf6e09a897008b5c04-750-750.jpg" class="img-fluid" alt="Profile Image"> Hi, Arief</a>
@@ -57,19 +57,26 @@
                     <section class="tab-pane container" id="info" ng-class="{ active: isSet(2) }" ng-show="isSet(2)"> 
                         <div class="schedule">
                             <p>Jadwal Praktik</p>
-                            <p class="font-weight-bold">11:00 - 12:00</p>
+                            <span ng-repeat="data in info.schedule">
+                                <p class="font-weight-bold">{{data.hari}} {{data.jam}} </p>
+                             </span>
                         </div>
                         <div class="experience">
-                            <p>Pengalaman :</p>
-                            <p class="font-weight-bold">jadi bidan</p>
+                                <p>Pengalaman :</p>
                         </div>
                         <div class="provide">
+                            
+                            
                             <p>layanan</p>
-                            <p class="font-weight-bold">Cek darah</p>
+                            <span ng-repeat="data in info.service">
+                                <p class="font-weight-bold">{{data}}</p>
+                                </span>
                         </div>
                         <div class="education">
                             <p>Pendidikan</p>
-                            <p class="font-weight-bold">sdn 10</p>
+                            <span ng-repeat="data in info.education">
+                                <p class="font-weight-bold">{{data}}</p>
+                            </span>
                         </div>
                     </section>
                 </div>

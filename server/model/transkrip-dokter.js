@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
+const Patient = require("../model/patient.js");
+const Doctor = require("../model/doctor.js");
 
 let transkripDokter = mongoose.Schema({
   nama_pasien: {
@@ -17,8 +19,14 @@ let transkripDokter = mongoose.Schema({
       ref: Patient
     }
   ],
+  id_dokter: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: Doctor
+    }
+  ],
   tanggal_pesan: {
-    type: Date,
+    type: String,
     required: true
   },
   resep_dokter: {
@@ -29,16 +37,10 @@ let transkripDokter = mongoose.Schema({
     type: String,
     required: true
   },
-  id_dokter: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: Doctor
-    }
-  ],
   harga: {
       type: Number,
       required: true
-  }
+  },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
   // userId: [{ type: Schema.Types.ObjectId, ref: 'User' }]

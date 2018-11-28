@@ -3,11 +3,14 @@ m.factory('Api', function($http,$q){
     var factory={};
 
     var URL_LIST={
-        LOGIN_PATIEN:"https://apisehat.herokuapp.com/patients/login",
-        LOGIN_DOCTOR:"https://apisehat.herokuapp.com/doctor/login",
-        REGISTER_PATIEN:"https://apisehat.herokuapp.com/patients/register",
-        REGISTER_DOCTOR:"https://apisehat.herokuapp.com/doctor/register",
-        PROFILE_DOCTOR:"https://apisehat.herokuapp.com/doctor/profile",
+        LOGIN_PATIEN:"http://localhost:3000/patients/login",
+        LOGIN_DOCTOR:"http://localhost:3000/doctor/login",
+        REGISTER_PATIEN:"http://localhost:3000/patients/register",
+        REGISTER_DOCTOR:"http://localhost:3000/doctor/register",
+        PROFILE_DOCTOR:"http://localhost:3000/doctor/profile",
+        DASHBOARD_DOCTOR:"http://localhost:3000/doctor/dashboard",
+        REMOVE_PATIEN:'http://localhost:3000/doctor/finishchedule',
+        END_SESSION:'',
         // UPDATE_DOCTOR_GET:"https://apisehat.herokuapp.com/doctor/setting",
         // UPDATE_DOCTOR_POST:"https://apisehat.herokuapp.com/doctor/setting",
     };
@@ -95,8 +98,6 @@ m.factory('Api', function($http,$q){
     };
 
 
-    factory.dalam_proses_pasien=function(){};
-    factory.selesai_pasien=function(){};
     factory.profil_dokter=function(id){
         var Url=URL_LIST.PROFILE_DOCTOR;
         var deferred = $q.defer();
@@ -184,6 +185,59 @@ m.factory('Api', function($http,$q){
         
           return deferred.promise;
     };
+
+
+    factory.dashboard_doctor=function(id){
+      var Url=URL_LIST.DASHBOARD_DOCTOR;
+      var deferred = $q.defer();
+     
+          setTimeout(function() {
+            deferred.notify();
+  
+            $http({
+            method: 'Post',
+            url :  Url+'/'+id,
+            headers: {
+                 'Content-Type': 'application/json',
+                 'Access-Control-Allow-Origin': '*'
+            }
+          }).then(function successCallback(response) {
+                deferred.resolve(response);
+              }, function errorCallback(response) {
+                deferred.reject(response);
+              });
+            }, 200);
+        
+          return deferred.promise;
+    };
+    //lll
+
+    factory.remove_patien=function(id){
+      var Url=URL_LIST.REMOVE_PATIEN;
+      var deferred = $q.defer();
+     
+          setTimeout(function() {
+            deferred.notify();
+  
+            $http({
+            method: 'delete',
+            url :  Url+'/'+id,
+            headers: {
+                 'Content-Type': 'application/json',
+                 'Access-Control-Allow-Origin': '*'
+            }
+          }).then(function successCallback(response) {
+                deferred.resolve(response);
+              }, function errorCallback(response) {
+                deferred.reject(response);
+              });
+            }, 200);
+        
+          return deferred.promise;
+    };
+
+
+    
 
 
     return factory;

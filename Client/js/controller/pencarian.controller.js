@@ -1,8 +1,11 @@
 
-m.controller('PencarianController', ['$scope', '$http', '$rootScope', 'Auth','Api', function ($scope, $http, $rootScope, Auth,Api) {
+m.controller('PencarianController', ['$scope', '$http', '$rootScope', 'Auth','Api','$location', function ($scope, $http, $rootScope, Auth,Api,$location) {
 
 
-
+    $scope.logout=function(){
+        Auth.logout();
+        $location.path('/');
+    }
 
 
 $scope.find_data=function(){
@@ -15,7 +18,7 @@ $scope.find_data=function(){
     // $scope.listspesialis.value
 }
 
-$scope.Pencarian=[{nama_dokter:"Dr. Bernard Mahfouz",spesialist:'Spesialis Jantung',harga_praktek:'Rp. 50000 - Rp. 10000',user_id:'123456789'}];
+$scope.Pencarian=[{nama_dokter:"Dr. Bernard Mahfouz",spesialist:'Spesialis Jantung',harga_praktek:'Rp. 10000',user_id:'5bfe2c805d8ec61e98db7931'}];
 $scope.listkota = [{
     name: 'Jakarta',
     value: 'JKT'
