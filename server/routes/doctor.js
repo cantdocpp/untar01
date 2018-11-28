@@ -10,5 +10,5 @@ router.get("/", doctorController.getAllDoctor);
 // router.post('/setting/:user_id', doctorController.getprofileDoctor);
 router.get("/id/:id", doctorController.getDoctorById);
 router.get("/specialist/:specialist", doctorController.getDoctorBySpeciality);
-router.put("/id", doctorController.editDoctorById);
+router.put("/edit/:id", doctorController.editDoctorById);
 module.exports = router;

@@ -94,9 +94,9 @@ module.exports = {
 
   getAllDoctor: (req, res) => {
     Doctor.find({})
-      .then(function(res) {
+      .then(function(response) {
         res.status(200).json({
-          data: res
+          data: response
         });
       })
       .catch(function(err) {
@@ -136,9 +136,9 @@ module.exports = {
 
   getDoctorById: (req, res) => {
     Doctor.findOne({ _id: req.params.id })
-      .then(function(res) {
+      .then(function(response) {
         res.status(200).json({
-          data: res
+          data: response
         });
       })
       .catch(function(err) {
@@ -167,8 +167,10 @@ module.exports = {
   },
 
   editDoctorById: (req, res) => {
-    Doctor.find({ id: req.params.id }, req.body)
-      .then(function(res) {
+    Doctor.findOneAndUpdate({ _id: req.params.id }, {nomor_ijin : req.body.nomor_ijin})
+    .exec()
+      .then(function(response) {
+        console.log(response)
         res.status(200).json({
           message: "edit data success"
         });
