@@ -151,9 +151,9 @@ module.exports = {
   getDoctorBySpeciality: (req, res) => {
     console.log('masuk ke specialist function')
     Doctor.find({ specialist: req.params.specialist })
-      .then(function(res) {
-        console.log(res)
-        let data = res
+      .then(function(response) {
+        console.log(response)
+        let data = response
         res.status(200).json({
           data: data
         })
